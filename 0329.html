@@ -8,14 +8,31 @@
 <body>
    <!--이벤트: 사건 ,일 예)마우스 클릭 스크롤 등-->
 
+    <h1>h1 태그</h1>
+    <h2>h2태그</h2>
+    <h3>h3태그</h3>
+
+    <!--DOM 사용 순서 1선택 2 조작-->
+
+
+
+
+
+
+
 
 
 
 
    <script>
+
+
+
     //함수 : 명령어 모아둔것 만들어두고 실행하는 매크로
 
     평균점수(10,20,30)
+    평균점수(11,220,330)
+    평균점수(100,250,340)
 
     function 평균점수(가져온점수1,가져온점수2,가져온점수3) {
         let 평균 
@@ -23,8 +40,35 @@
         console.log(평균)//평균점수 출력
 
 
+
+
+
     }
+
+
+    let h1지정
+    h1지정 =document.querySelector("h1") //""안쓰면 변쑤 지정
+    let h2지정
+    h2=document.querySelector("h2")
+    let h3지정
+    h3지정=document.querySelector("h3")
+
+    //2단어로 된 스타일 대문자로 구별해 붙여야함
+    //tex-align -->textAlign
+    //background-color -->backgroundColor
+
+
+    h1지정 style.color ="coral"
+    h2지정.style.color="50px"
+    h3지정.style.border="1px solid #CCC"
+    h3지정.style.height="50px"
+    h3지정.style.borderRadius="5px"
+
+
+
+
    </script>
+
 
 </body>
 </html>
