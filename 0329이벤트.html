@@ -22,10 +22,22 @@ let 버튼
 //이벤트 리스너 event Lisner :이벤트를 듣고 동작을 실행하는
 //addEventLisner 이벤트 종류 ,동작
 
-버튼.addEventListener("click" , function() {
+버튼.addEventListener("click" , function() { // click 클릭
     console.log("버튼 클릭 이벤트 실행했음")
     alert("버튼 클릭함")
 })
+
+
+
+ 버튼.addEventListener("mouseover",function() {
+    console.log("마우스를 갖다 댐")
+
+ })// mouseover :마우스를 위에 올림 over
+
+
+버튼.addEventListener("mouseout",function() {
+    console.log("마우스 나감")
+ })
 
 </script>
 
