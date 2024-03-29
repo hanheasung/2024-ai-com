@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트2</title>
+</head>
+<body>
+    
+
+<button style="width:300px ; height: 100px;">버튼</button>
+
+
+<script>
+//이벤트 사용 법 해당 태그에 이벤트 추가
+
+//1 지정
+let 버튼
+버튼 = document.querySelector("button")
+
+//2. 조작 이벤트 추가
+//이벤트 리스너 event Lisner :이벤트를 듣고 동작을 실행하는
+//addEventLisner 이벤트 종류 ,동작
+
+버튼.addEventListener("click" , function() {
+    console.log("버튼 클릭 이벤트 실행했음")
+})
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
