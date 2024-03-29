@@ -8,7 +8,7 @@
 <body>
     
 
-<button style="width:300px ; height: 100px;">버튼</button>
+<button style="width:300px ; height: 100px; color: aqua;">버튼</button>
 
 
 <script>
@@ -35,9 +35,29 @@ let 버튼
  })// mouseover :마우스를 위에 올림 over
 
 
-버튼.addEventListener("mouseout",function() {
+버튼.addEventListener("mouseout",function() { //마우스 멀리 떨어짐 나감
     console.log("마우스 나감")
  })
+
+
+버튼.addEventListener("mousedown",function() { //마우쓰, 누르는 것
+
+    console.log("클릭")
+    //굳이 누르고 떄는거 구분 안하려면 클릭
+
+
+})
+
+버튼.addEventListener("mouseup",function() { //눌렀던거 떄는것
+    console.log("땜")
+    
+ })
+
+
+
+
+
+
 
 </script>
 
