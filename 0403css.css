@@ -1,2 +1,8 @@
 h1{padding: 20px; margin: 30px;}
 .main{color: #e10303; background-color: aqua;}
+
+li {list-style:none;
+    border: 1px solid #e10303;
+ text-align: center;line-height: 30px;
+}
+
