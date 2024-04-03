@@ -2,7 +2,12 @@ h1{padding: 20px; margin: 30px;}
 .main{color: #e10303; background-color: aqua;}
 
 li {list-style:none;
-    border: 1px solid #e10303;
+    border: 1px solid #e10303; border-radius: 20px;
  text-align: center;line-height: 30px;
 }
 
+p{
+    font-family: "Moirai One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
