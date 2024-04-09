@@ -18,30 +18,57 @@
     </style>
 </head>
 <body>
-    <table>
 
-    <tr>
-        <td>1번칸</td>
-        <td>2번칸</td>
-        <td>3번째칸</td>
-    </tr>
-    <tr>
-        <td>2번즐 1번칸</td>
-        <td colspan="2">2번즐 2번칸</td>
-        
-    </tr>   
-    <tr>
-        <td rowspan="3">3번줄1</td>
-        <td>3번줄2</td>
-        <td>31번줄3</td>
-    </tr>
-    <tr>
-        <td rowspan="2">4번줄2</td>
-        <td>4번줄3</td>
-    </tr>
-    <tr>
-        <td>5번줄3</td>
-    </tr>
+
+
+
+
+
+
+
+    <table>
+        <caption>부가 설명 달아주는거</caption>
+
+        <colgroup>
+        <col style="background-color: aqua;">
+        <col>
+        <col style="background-color: blue;">
+        </colgroup>
+
+
+        <thead>
+            <tr>
+                <td>1번칸</td>
+                <th>2번칸</th>
+                <td>3번째칸</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>2번즐 1번칸</td>
+                <td colspan="2">2번즐 2번칸</td>
+                
+            </tr>   
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td rowspan="3">3번줄1</td>
+                <td>3번줄2</td>
+                <td>31번줄3</td>
+            </tr>
+            <tr>
+                <td rowspan="2">4번줄2</td>
+                <td>4번줄3</td>
+            </tr>
+            <tr>
+                <td>5번줄3</td>
+            </tr>
+        </tfoot>
+
+   
+    
     </table>
 
 </body>
