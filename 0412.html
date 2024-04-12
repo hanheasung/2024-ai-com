@@ -34,7 +34,12 @@
         //함수 내에 코드를 데이터로 취급
         //이벤트: 사건 일 웹 페이지 상에서 일어나는 동작 사건 ,마우스 클릭 키보드 입력 등
         //이벤트가 일어날 떄마다 그에 따른 동작 코드 등을 실행할수있다
-
+        //DOM의 기본 원리 :대상지정 , 지정한 대상 조작 
+        let 박스 = document.querySelector(".box")
+        //박스.addEventListener(이벤트 종류,실행할 코드)
+        박스.addEventListener("click",function() {
+            console.log("마우스 클릭함")
+        })
     </script>
 
 
