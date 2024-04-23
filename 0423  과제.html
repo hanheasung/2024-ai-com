@@ -26,12 +26,81 @@
             <hr>
             
             <h2>사이드</h2>
-            <label for="" ><input type="button" name=""  > 무</label>
-            <label for=""><input type="button" name="">치즈볼</label>
-            <label for=""><input type="button" name=""> 빵</label>
-            <label for=""><input type="button" name="">뭔가</label>
+            <label for="" ><input type="checkbox" name=""  > 무</label>
+            <label for=""><input type="checkbox" name="">치즈볼</label>
+            <label for=""><input type="checkbox" name=""> 빵</label>
+            <label for=""><input type="checkbox" name="">뭔가</label>
+
+            <br><br>
+            <h2>,선택사항</h2>
+            <label for="" ><input type="checkbox" name=""  > 비닐</label>
+            <label for=""><input type="checkbox" name="">치즈볼 나무</label>
+            <label for=""><input type="checkbox" name=""> 빵제외</label>
+            <label for=""><input type="checkbox" name="">뭔가</label>
+            <label for=""> <input  type="range" min="0" max="5" step="1" value="3" ></label>
+
+        <br>
+            <label for=""> 소스양
+
+                <select>
+                    <option value="1번">많음</option>
+                    <option value="2번">적음</option>
+                    <option value="3번">중간</option>
+    
+                </select>
+            </label>
+            
+            <br>
+            <h1>기타 희망사항</h1>
+            <textarea name id cols="60" rows="5"></textarea>
+
+
+
 
     </div>
+
+
+
+        <div  style="border:2px dotted ;padding: 5px;border-radius: 20px;margin:auto;background-color: aliceblue; width: 900px; text-align: center;">
+            <h1>주문정보 </h1>
+            <h2 >주문자 정보</h2>
+            
+            <label for="">주문자 정보<input type="text" placeholder="홍길동"></label>
+            <br>
+            <label for="">전화번호<input type="text"placeholder="000-0000-0000"></label>
+            <br>
+            <label for="">주소<input type="text"placeholder="ㅇㅇ동 ㅇㅇ번지"></label>
+            <br>
+            <label for="">쿠폰<input type="date"placeholder="년-월-일"></label>
+            <br>
+            <h2>지불방법</h2>
+            <label for="1" ><input type="radio" name="1"  >카드  </label>
+            <label for="1"><input type="radio" name="1">  쿠폰</label>
+            <label for="1"><input type="radio" name="1">현금</label>
+            <br>
+            <h2>카드사</h2>
+            <label for="1" ><input type="radio" name="1"  >신안  </label>
+            <label for="1"><input type="radio" name="1">  국민</label>
+            <label for="1"><input type="radio" name="1">카카옿</label>
+            <br>
+            <label for="">카드사 번호<input type="text"placeholder="000-0000-0000"></label>
+           
+           
+
+
+        </div>
+
+        <div style="border:2px dotted ;padding: 5px;border-radius: 20px;margin:auto;background-color: aliceblue; width: 900px; text-align: center;">
+            <h1>개인정보 수집 동의,이용동의</h1>
+            <h2 style="color: rgb(203, 203, 199);">주문 정보를 저장하기 위해 회원의 개인정보를 수집하고 있으며, 수집에 동의하지 않으면 주문이 불가능 합니다.</h2>
+            <label for=""> <input type="radio" name="3">동의</label>
+            <label for=""> <input type="radio" name="3">거절</label>
+            <br><br>
+            <h1>이벤트</h1>
+            <h2 style="color: rgb(203, 203, 199);">이벤트 및 각종 혜택 정보 제공을 위한 문자 전송을 수신합니다.</h2>
+            <label for=""> <input type="radio" name="4">동의</label>
+            <label for=""> <input type="radio" name="4">거절</label>
+        </div>
     </form>
 
 
