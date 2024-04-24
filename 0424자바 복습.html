@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Emet:메크로</h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <button id="button1">이미지1</button>
+    <button >이미지1</button>
+
+    <button >이미지2</button>
+  
+
+    <img src="이이.jpg" alt="" width="200px">
+
+    <script>
+        let 버튼1 = document.querySelector("#butten1")
+        let 버튼2 = document.querySelector("#butten2")
+
+
+        //dom 의 원리1.지정 3조작
+        let 이미지 =document.querySelector("img")
+        이미지.setAttribute("src","https://i.ytimg.com/vi/Sd8im3XT_oE/maxresdefault.jpg")
+
+
+        //버튼 누르면 이미지 바뀌게하기 
+        //버튼에 DOM을 조작
+        버튼1.addEventListener("click",function(){
+            //이미지 바꾸는것 setAttribute로 src 바꾸는 것
+            이미지.setAttribute("src","이이.jpg")
+        })
+        버튼2.addEventListener("click",function(){
+            //이미지 바꾸는것 setAttribute로 src 바꾸는 것
+            이미지.setAttribute("src","https://i.ytimg.com/vi/Sd8im3XT_oE/maxresdefault.jpg")
+        })
+    </script>
+</body>
+</html>
