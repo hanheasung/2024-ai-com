@@ -1,0 +1,41 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>아이온큐</title>
+    </head>
+    <body>
+        <h1>아잉큐 테스트</h1>
+    
+        <label for="a" >이름<input type="text" id="a"></label><br>
+        <label for="b" >나이<input type="text" id="b"></label><br>
+        <label for="c">성별<input type="text" id="c"></label><br>
+
+        
+     
+        <button>제출</button>
+    
+        <script>
+                
+                let a = document.querySelector("#a")
+                let b = document.querySelector("#b")
+                let c = document.querySelector("#c")
+                let but = document.querySelector("button")
+                but.addEventListener("click", function(){
+                   
+                    let name = a.value;
+                    let age = b.value;
+                    let gender = c.value;
+
+                     alert('$(name)  님의 나이는   $(age)  이고, 성별은   $(gender)  입니다.');
+
+                })
+
+            
+        </script>
+        
+    </body>
+    </html>
+    
