@@ -22,7 +22,7 @@
     버튼.addEventListener('click', function(){
         let 킴 = 키.value
         let 몸뭄게 = 몸무게.value
-        let bmi = 킴*몸뭄게
+        let bmi = (몸뭄게*킴)/2
         console.log(bmi)
         let aaa = document.querySelector("span")
         aaa.textContent = bmi
