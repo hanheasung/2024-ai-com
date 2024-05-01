@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>태그생성</title>
+    <style>
+        .parent{width: 200px; height: 200px;background-color: aqua;}
+        .children {color:blue;font-weight: 300; font-style: italic;}
+        .parent2{color: brown;font-weight: 600;font-style: italic; background-color: cadetblue;}
+    </style>
+</head>
+<body>
+    
+    <div class="parent">
+        div박스
+    </div>
+
+    <div class="parent2">
+        div박스
+    </div>
+
+    <script>
+        //새로운 태그 생성
+        let 새태그
+        새태그 = document.createElement("p")
+        console.log(새태그)
+
+        새태그.textContent = "태그 새로 만듦"
+        새태그.classList.add("children")
+        console.log(새태그)
+
+        //만든 태그 화면에 나타내기
+        let 박스 =document.querySelector(".parent")
+
+        박스.appendChild(새태그) //자식을 갖다 붙인다
+
+
+        박스.removeChild(새태그)
+        let 박스2 =document.querySelector(".parent2")
+        박스2.appendChild(새태그) //자식을 갖다 붙인다
+
+
+
+    </script>
+</body>
+</html>
