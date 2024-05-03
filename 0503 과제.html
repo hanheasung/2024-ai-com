@@ -13,10 +13,11 @@
 </head>
 <body>
 <h1>마우스 술래잡기</h1> <br> <br>
-<form action="">
+
 <button class="start">술래잡기 시작 </button>
 <button class="stop" >술래잡기 정지</button>
-</form>
+<br>
+
     
 <div class="box1">박스1 <br><img src="/음.jpg" alt="" width="150px" class="imgg"></div>
 <div class="box2">박스2 </div>
@@ -24,9 +25,21 @@
 
 
 <script>
-    let 시작 =document.createElement("start") 
-    box1.appendChild(imgg)
+    let 시작=document.querySelector(".start") 
+    let 정지 = document.querySelector(".stop")
+    let 박스1 =document.querySelector(".box1")
+    let 박스2 =document.querySelector(".box2")
+    let 박스3 =document.querySelector(".box3")
+    let 사진 = document.querySelector(".imgg")
+
+    시작 = addEventListener("click",function(){
+        박스1.classList.add(사진)
+      
+    })
     
+     정지 = addEventListener("click" function(){
+        사진.classList.remove()
+     })
 
 </script>
 </body>

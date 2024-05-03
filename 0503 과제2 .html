@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 술래잡기 답</title>
+</head>
+<body>
+    <h3>마우스로 술잡</h3>
+    <button class="start">시작</button>
+    <button class="end">정지</button>
+    <br><br>
+    <div class="box1">박스1</div>
+    <div class="box2">박스2</div>
+    <div class="box3">박스3</div>
+
+    <script>
+        let 박스1 = document.querySelector(".box1")
+        let 박스2 = document.querySelector(".box2")
+        let 박스3 = document.querySelector(".box3")
+        let 이미지; // 이미지 변수를 밖에서 선언
+
+        let 시작 = document.querySelector(".start")
+        시작.addEventListener("click", function() {
+            이미지 = document.createElement("img")
+            이미지.setAttribute("src", "/음.jpg")
+
+            박스1.appendChild(이미지)
+
+            // 이미지에 대한 마우스 이벤트 리스너 추가
+            이미지.addEventListener("mouseover", function() {
+                if (지금위치 === 1) {
+                    박스2.appendChild(이미지)
+                    지금위치 = 2
+                } else if (지금위치 === 2) {
+                    박스3.appendChild(이미지)
+                    지금위치 = 3
+                } else if (지금위치 === 3) {
+                    박스1.appendChild(이미지)
+                    지금위치 = 1
+                }
+            })
+        })
+
+        let 지금위치 = 1
+
+        let 정지버튼 = document.querySelector(".end")
+        정지버튼.addEventListener("click", function() {
+            if (지금위치 === 1)
+                박스1.removeChild(이미지)
+            else if (지금위치 === 2)
+                박스2.removeChild(이미지)
+            else if (지금위치 === 3)
+                박스3.removeChild(이미지)
+        })
+    </script>
+</body>
+</html>
