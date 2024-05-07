@@ -9,6 +9,13 @@
         .box1{width: 200px;border:2px solid; height: 200px;}
         .box2{width: 200px;border:2px solid; height: 200px;}
         .box3{width: 200px;border:2px solid; height: 200px;}
+        #aa {float: left;}
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -17,9 +24,16 @@
     <button class="start">시작</button>
     <button class="end">정지</button>
     <br><br>
-    <div class="box1">박스1</div>
-    <div class="box2">박스2</div>
-    <div class="box3">박스3</div>
+    
+    <div class="box1" id="aa">박스1</div>
+    <div class="box2" id="aa">박스2</div>
+    <div class="box3" id="aa">박스3</div>
+
+
+
+
+
+
 
     <script>
         //시작 여러번 누르면 증식하면서 오류 남 해결하기
@@ -30,7 +44,7 @@
         let 박스1 = document.querySelector(".box1")
         let 박스2 = document.querySelector(".box2")
         let 박스3 = document.querySelector(".box3")
-        let 이미지; // 이미지 변수를 밖에서 선언
+        let 이미지 // 이미지 변수를 밖에서 선언
 
         let 시작 = document.querySelector(".start")
         시작.addEventListener("click", function() {
@@ -39,7 +53,7 @@
 
             박스1.appendChild(이미지)
 
-            // 이미지에 대한 마우스 이벤트 리스너 추가
+
             이미지.addEventListener("mouseover", function() {
                 if (지금위치 === 1) {
                     박스2.appendChild(이미지)
