@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="box"></div>
+
+
+    <h1>여행지</h1>
+    <img src="/쉿.jpg" alt="" class="img">
+
+
+    <script>
+        let 이미지 = document.querySelector("img")
+        let 텍스트 = document.querySelector("h1")
+
+        document.addEventListener("keydown",function(event){
+            if(event.key == "a") {
+                // 이미지 src 속성을 수정
+                이미지.setAttribute("src","이이.jpg")
+                텍스트.textContent = "여행지 ㅁㅁㅁ"
+            }
+
+            else if(event.key == "s") {
+                // 이미지 src 속성을 수정
+                이미지.setAttribute("src","쉿.jpg")
+                텍스트.textContent = "여행지 ㅁㄴㅁㄴㄴㅇㄹㅇ"
+            }
+        })
+    </script>
+</body>
+</html>
