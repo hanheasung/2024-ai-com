@@ -8,6 +8,7 @@
 
     <style>
         .box{width: 1000px;height: 1000px;border: 2px solid;}
+        img{width: 500px;}
     </style>
 </head>
 <body>
@@ -15,7 +16,7 @@
     <div class="box" style="margin: auto;">
         <img class="aaaa"src="/이이.jpg" alt="">
 
-        
+        <div class="as">미국</div>
     </div>  
     <script>
         
@@ -23,15 +24,17 @@
             let 이미지 = document.querySelector('.aaaa'); //클래스에 앞에 점 넣기
 
 
-            if(event['key'] == "a"){
+            if(event['key'] == "a" ){
+            
                
                이미지.src = 'https://a.cdn-hotels.com/gdcs/production8/d946/e2c1433c-c92c-4148-82c0-65bde779c5e7.jpg'
-               
+               as.textContent = '닛뽄'
                
             }
 
             else if (event['key'] == "s"){
-                이미지.src = '쉿.jpg'
+                이미지.src = '쉿.jpg';
+                as.textContent = '용용이'
             }
         });
     </script>
