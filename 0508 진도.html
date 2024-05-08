@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h2>키보드 이벤트</h2>
+    <h4>누르는거: keydown keypress  떄는거 :keyup</h4>
+
+
+    <script>
+        //document.addEventListener(이벤트 종류,함수 function(){})
+        document.addEventListener("keydown",function(event){
+            console.log("키보드 입력 발생")
+            console.log(event)
+
+        })
+        document.addEventListener("keyup",function(event){
+            console.log("키보드 입력 발생111111111")
+            console.log(event.key)
+        })
+
+        document.addEventListener("click", function(event){
+            console.log("마우스 이벤트 발생")
+            console.log(event)
+        })
+
+    </script>
+
+    
+</body>
+</html>
