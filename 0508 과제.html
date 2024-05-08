@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트 과제</title>
+
+    <style>
+        .box{width: 1000px;height: 1000px;border: 2px solid;}
+    </style>
+</head>
+<body>
+
+    <div class="box" style="margin: auto;">
+        <img class="aaaa"src="/이이.jpg" alt="">
+
+        
+    </div>  
+    <script>
+        
+        document.addEventListener("keydown",function(event){
+            let 이미지 = document.querySelector('.aaaa'); //클래스에 앞에 점 넣기
+            
+
+            if(event['key'] == "a"){
+               
+               이미지.src = 'https://a.cdn-hotels.com/gdcs/production8/d946/e2c1433c-c92c-4148-82c0-65bde779c5e7.jpg'
+               
+               
+            }
+
+            else if (event['key'] == "s"){
+                이미지.src = 'https://a.cdn-hotels.com/gdcs/production142/d475/ebbf63ca-7cbd-48e1-826d-0e65833a7a3d.jpg'
+            }
+        });
+    </script>
+
+
+
+</body>
+</html>
