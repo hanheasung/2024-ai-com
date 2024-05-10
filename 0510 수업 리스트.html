@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열 객체 </title>
+</head>
+<body>
+
+    <script>
+        //객체 : 변수 안에 여러 데이터를 이름을 붙여서 집어 넣는것
+        let 황 //쉼표 중요
+        황 = {
+            이름:"황준섭",
+            키:180,
+            학교:"영광고",
+            월급:100,
+        }
+
+        let 김 = {
+            이름:'171',
+            키:'김형준',
+            '학교':'청량고',
+            '몸무게': '몰루',
+            '졸업학교':{
+                '초등학교':'뭔가',
+                '중학교':'ㅇㅇ고',
+
+            }
+
+        }
+
+
+        console.log(황)
+        console.log(황.월급)
+        console.log(황['월급'])
+
+
+
+        console.log(김.졸업학교.중학교)
+
+
+        //JSON
+        let 김유찬 = {//학교 이름 키 몸무게 위치에 있는것들 =key   : 뒤에있는것들 벨류
+            '이름' :'11',
+            '키':11,
+            '학교':'11',
+            '몸무게':1111,
+        }
+
+        let 황JSON = JSON.stringify(황)
+        console.log(황JSON)
+
+        let 다시황 = JSON.parse(황JSON)
+        console.log(다시황) 
+
+
+
+
+
+
+
+
+
+        
+    </script>
+
+    
+</body>
+</html>
