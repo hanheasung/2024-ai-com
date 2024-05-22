@@ -80,6 +80,87 @@
 
 
 
+
+
+    <script>
+        let 입력 = document.querySelector("input")
+        let 섹션 =  document.querySelector('main')
+
+        //키보드 이벤트
+
+        입력.addEventListener("keyup",function(event){
+            //엔터 구분 
+            if (event.code == "Enter" && 입력.value !="") {
+                console.log('엔터 누름')
+
+
+                //인풋에 입력된 값 가져오기
+
+                console.log(입력.value)
+
+
+                let 디박스 = document.createElement("div")
+                디박스.classList.add('todo-list')
+
+                let p태그1 = document.createElement("p")
+                
+                p태그1.classList.add('like')
+                p태그1.innerHTML = `<i class="material-icons">favorite_border</i>`
+                디박스.appendChild(p태그1)
+                let p태그2 = document.createElement("p")
+                p태그2.classList.add('content')
+                p태그2.textContent = 입력.value //input 내용 가져옴
+                디박스.appendChild(p태그2)
+
+                let 관리 = document.createElement("div")
+                관리.classList.add("manage")
+
+                let i태그1 = document.createElement("i")
+                i태그1.classList.add("material-icons")
+                i태그1.classList.add("check")
+                i태그1.textContent = "check"
+
+                let i태그2 = document.createElement("i")
+                i태그2.classList.add("material-icons")
+                i태그2.classList.add("clear")
+                i태그2.textContent = "clear"
+                
+
+
+                
+
+                관리.appendChild(i태그1)
+                관리.appendChild(i태그2)
+
+                디박스.appendChild(관리)
+
+
+                //만든 할일 화면에 넣어주기
+                섹션.appendChild(디박스)
+
+                입력.value = ""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+          
+
+        })
+
+
+    </script>
 </body>
 
 
