@@ -50,6 +50,12 @@
 
         .check{color: rgb(0, 244, 37);}
         .clear{color: red;}
+
+
+        .manage i {cursor: pointer;}
+        .like I {cursor: pointer;}
+        
+
         
         
     </style>
@@ -64,15 +70,7 @@
     </header> 
 
     <main>
-        <div class="todo-list">
-            <p class="like"><i class="material-icons">favorite_border</i></p>
-            <p class="content">내용</p>
-            <div class="manage"> 
-                
-                <i class="material-icons check">check</i>
-                <i class="material-icons clear">clear</i>
-            </div>
-        </div>
+   
     </main>
 
 
@@ -103,14 +101,24 @@
                 디박스.classList.add('todo-list')
 
                 let p태그1 = document.createElement("p")
-                
+
+
+                let i태그 = document.createElement('i')
+                i태그.classList.add('material-icons')
+                i태그.textContent = 'favorite_border'
+                p태그1.appendChild(i태그)
+
                 p태그1.classList.add('like')
-                p태그1.innerHTML = `<i class="material-icons">favorite_border</i>`
+
+              //  p태그1.innerHTML = `<i class="material-icons">favorite_border</i>`
+
                 디박스.appendChild(p태그1)
+
                 let p태그2 = document.createElement("p")
                 p태그2.classList.add('content')
                 p태그2.textContent = 입력.value //input 내용 가져옴
                 디박스.appendChild(p태그2)
+
 
                 let 관리 = document.createElement("div")
                 관리.classList.add("manage")
@@ -124,6 +132,36 @@
                 i태그2.classList.add("material-icons")
                 i태그2.classList.add("clear")
                 i태그2.textContent = "clear"
+
+
+                i태그2.addEventListener('click',function(){
+                    //글씨 색이 변하고 취소선 그어진다 css
+                    p태그2.style.color = "#888"
+                    p태그2.style.textDecoration = 'line-through'
+                    i태그1.style.visibility = 'hidden'
+                })
+
+                i태그1.addEventListener('click',function(){
+                    //글씨 색이 변하고 취소선 그어진다 css
+                    p태그2.style.color = "red"
+                    i태그2.style.visibility = 'hidden'
+                    i태그1.style.visibility = 'hidden'
+                })
+
+                i태그2.addEventListener("click",function(){
+                    섹션.removeChild(디박스)
+                })
+
+
+                i태그.addEventListener('click',function(){
+                    if(i태그.textContent == 'favorite') {
+                        i태그.textContent = "favorite_border"
+                    }
+                    else {
+                        i태그.textContent = "favorite"
+
+                    }
+                })
                 
 
 
