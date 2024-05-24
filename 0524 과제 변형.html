@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>짭스타그램</title>
+
+    <style>
+        .title {
+            font-size: 20px;
+            color: red;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { display: flex; background-color: #fafafa;}
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            position: fixed;
+            background-color: white;
+            border-right: 1px solid #dbdbdb;
+            padding: 20px 0;
+        }
+        .sidebar img { width: 30px; margin-right: 10px; }
+        .sidebar .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .sidebar .menu-item:hover { background-color: #f1f1f1; }
+        .sidebar .menu-item span { font-size: 16px; }
+        .sidebar .menu-item.more { margin-top: auto; }
+
+        /* Top bar */
+        .topbar {
+            width: calc(100% - 250px);
+            height: 60px;
+            position: fixed;
+            left: 250px;
+            top: 0;
+            background-color: white;
+            border-bottom: 1px solid #dbdbdb;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        .topbar #search-icon {
+            width: 30px;
+            margin-right: 10px;
+        }
+        .topbar #search-input {
+            width: 100%;
+            max-width: 215px;
+            padding: 5px 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            font-size: 14px;
+            background-color: #fafafa;
+        }
+
+        /* Main content area */
+        .content {
+            margin-left: 250px;
+            margin-top: 60px;
+            padding: 20px;
+            width: calc(100% - 250px);
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Posts section */
+        .posts {
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .post {
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+        }
+        .post-header, .post-footer {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .post-header img, .post-footer img { width: 30px; border-radius: 50%; }
+        .post-header div, .post-footer div { margin-left: 10px; }
+        .post-image { width: 100%; }
+        .post-actions { display: flex; justify-content: space-around; padding: 10px; }
+
+        /* Sidebar content */
+        .side-content {
+            width: 300px;
+            margin-left: 20px;
+            padding: 20px;
+        }
+        .side-content .profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .side-content .profile img { width: 50px; border-radius: 50%; }
+        .side-content .profile div { margin-left: 10px; }
+        .side-content .suggestions { background-color: white; padding: 10px; border: 1px solid #dbdbdb; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="inst"><img src="https://th.bing.com/th/id/R.4392c1a6554a448a563319642db2d16a?rik=kqoeCdUFtZFkvw&riu=http%3a%2f%2fltwiki.net%2fw%2fimages%2fthumb%2f4%2f48%2f%ec%9d%b8%ec%8a%a4%ed%83%80%ea%b7%b8%eb%9e%a8_%eb%a1%9c%ea%b3%a0.png%2f900px-%ec%9d%b8%ec%8a%a4%ed%83%80%ea%b7%b8%eb%9e%a8_%eb%a1%9c%ea%b3%a0.png&ehk=Pu8%2fbpn%2fCU1PUk61C2oQ%2fXU0uQXKkb%2fJ5CBDJISVR5g%3d&risl=&pid=ImgRaw&r=0" alt="" style="width: 200px;position: relative;left: 20px;"></div>
+        <div class="menu-item"><img src="/쉿.jpg" alt="홈 아이콘"><span>홈</span></div>
+        <div class="menu-item"><img src="/쉿.jpg" alt="검색 아이콘"><span>검색</span></div>
+        <div class="menu-item"><img src="/쉿.jpg" alt="릴스 아이콘"><span>릴스</span></div>
+        <div class="menu-item"><img src="/쉿.jpg" alt="피드 아이콘"><span>피드</span></div>
+        <div class="menu-item more"><img src="/음.jpg" alt="더보기 아이콘"><span>더보기</span></div>
+    </div>
+
+    <!-- Top bar -->
+    <div class="topbar">
+        <img src="https://png.pngtree.com/element_our/20190601/ourlarge/pngtree-search-icon-image_1344447.jpg" alt="검색 아이콘" id="search-icon">
+        <input type="text" id="search-input" placeholder="검색">
+    </div>
+
+    <!-- Main content area -->
+    <div class="content">
+        <!-- Posts section -->
+        <div class="posts">
+            <div class="post">
+                <div class="post-header">
+                    <img src="/쉿.jpg" alt="프로필 이미지">
+                    <div>이재용</div>
+                </div>
+                <img src="/쉿.jpg" alt="포스트 이미지" class="post-image">
+                <div class="post-actions">
+                    <img src="/쉿.jpg" alt="액션 아이콘">
+                    <img src="/쉿.jpg" alt="액션 아이콘">
+                    <img src="/쉿.jpg" alt="액션 아이콘">
+                </div>
+                <div class="post-footer">
+                    <img src="/쉿.jpg" alt="프로필 이미지">
+                    <div>뭔가 뭔가</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar content -->
+        <div class="side-content">
+            <div class="profile">
+                <img src="/쉿.jpg" alt="프로필 이미지">
+                <div>
+                    <div><strong>재용햄</strong></div>
+                    <div>이재용</div>
+                </div>
+            </div>
+            <div class="suggestions">
+                <div>라이엇 짱</div>
+                <!-- Additional content can go here -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
