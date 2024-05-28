@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네이버 만들기</title>
+    <title>숫자말하기 게임</title>
 </head>
 <body>
-    
+    <script>
+        var num = Math.floor(Math.random()*6);
+        var ans = parseInt(window.prompt('숫자말하기 게임. 0~5의 숫자를 입력하세요.'));
+        
+        var message;
+        if(ans === num) {
+            message = '정답';
+
+        } else if(ans < num) {
+            message = '땡 더 크게'
+        } else if(ans > num) {
+            message = '땡 더 작게'
+        } else{
+            message = '0부터5 입력'
+        }
+        window.alert(message);
+
+    </script>
 </body>
 </html>
