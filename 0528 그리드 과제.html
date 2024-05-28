@@ -5,11 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>그리드 과제</title>
     <style>
+         html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;}
+
+        .mom{display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: 300px 300px 300px;gap: 20px;}
+        .box{background-color: aqua;}
+        img{width: 300px;height: 300px;}
+        img:hover{}
+
+      
 
     </style>
 </head>
 <body>
-    
-    
+    <div class="mom">
+    <div class="box"><img src="/쉿.jpg" alt="">
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    </div>
 </body>
 </html>
