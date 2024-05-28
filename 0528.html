@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="K0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리드</title>
+    <style>
+        .container{display: grid;grid-template-columns: repeat(6,1fr);gap: 30px;} /* fr 은 비율  gap은 아이템끼리 간격 ,벌어짐 */
+        .item{background-color: aqua;border: 1px solid;height: 200px;border-radius: 20px;}
+    </style>
+</head>
+<body>
+    <h1>부모: 컨테이너</h1>
+    <h1>자식: 아이템</h1>
+    <h1>그리드 한칸 : 셀</h1>
+    <div class="container">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item" style="grid-column: 1/7;grid-row: 3/4;"></div>
+    </div>
+</body>
+</html>
