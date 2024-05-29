@@ -21,12 +21,12 @@
     <h3><span>한라산이</span> <input type="text" class="inp" data-answer="한라산이"></h3>
     <p class="result"></p>
 
-    <p id="finalResult"></p>
+    <p id="fin"></p>
 
     <script>
         let 입력들 = document.querySelectorAll(".inp");
         let 결과들 = document.querySelectorAll(".result");
-        let 최종결과 = document.getElementById("finalResult");
+        let 다 = document.getElementById("fin");
 
         입력들.forEach((입력, index) => {
             입력.addEventListener('keypress', (event) => {
@@ -47,9 +47,9 @@
                     });
 
                     if (allWrong) {
-                        최종결과.textContent = '바보';
+                        다.textContent = '바보';
                     } else {
-                        최종결과.textContent = '';
+                        다.textContent = '';
                     }
                 }
             });
