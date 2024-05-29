@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자연습</title>
+</head>
+<body>
+    <h1>앵국가 타자연습</h1>
+    <hr>
+    <h2>값을 입력하면 맞는지 점검함</h2>
+    <h3>동해물과 <input type="text" id="inp"></h3>
+    <p id="result"></p>
+
+    <script>
+        let 입력 = document.getElementById("inp");
+        let 결과 = document.getElementById("result");
+
+        입력.addEventListener('input', () => {
+            if(입력.value === '동해물과'){
+                결과.textContent = '맞음';
+            } else{
+                결과.textContent = '틀림';
+            }
+        });
+    </script>
+</body>
+</html>
