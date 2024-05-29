@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크 화살표</title>
+    <style>
+        .box{width: 200px;height: 200px;border: solid;}
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <input type="text">
+
+
+    <script>
+        let 박스 =document.querySelector(".box")
+
+        박스.addEventListener("click",() => {박스.style.backgroundColor ="red"}) //함수 대신 화살표
+
+        const 입력박스 = document.querySelector('input')  //const 상수 : 변하지 않는 수
+
+        //let 변수 : 변하는 수
+        //input 이벤트 : 데이터가 입력되엤을 떄 실행. input냉ㅇ이 바뀔떄 실행
+        입력박스.addEventListener('input',(event)=> {
+            console.log('input이벤트 실행',event)
+            console.log("지금 input태그의 데이터",event.target.vele)
+        })
+    </script>
+</body>
+</html>
