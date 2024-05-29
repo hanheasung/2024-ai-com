@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0529 change 이벤트</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <input type="text">
+
+    <h1>셀렉</h1>
+    <select name="" id="">
+        <option value="">선택</option>
+        <option value="">선택</option>
+        <option value="">선택</option>
+    </select>
+    <script>
+        const 입력 = document.querySelector('input')
+        입력.addEventListener('change',(event) =>{
+            console.log('change 이벤트 발생')
+            console.log(event)
+
+
+        })
+
+        const 셀렉 = document.querySelector("select")
+        셀렉.addEventListener('change',(event) => {console.log('select 에서 발생')
+            console.log(event)
+        })
+
+    </script>
+</body>
+</html>
