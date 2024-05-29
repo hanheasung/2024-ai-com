@@ -9,17 +9,17 @@
     <h1>앵국가 타자연습</h1>
     <hr>
     <h2>값을 입력하면 맞는지 점검함</h2>
-    <h3><span>동해물과</span> <input type="text" class="inp" data-answer="동해물과"></h3>
-    <p class="result"></p>
+    <h3><span>동해물과</span> <input type="text" class="inp" data-answer="동해물과"> </h3>
+    <p class="result a1"></p>
 
     <h3><span>서해물이</span> <input type="text" class="inp" data-answer="서해물이"></h3>
-    <p class="result"></p>
+    <p class="result a2"></p>
 
     <h3><span>백두산이</span> <input type="text" class="inp" data-answer="백두산이"></h3>
-    <p class="result"></p>
+    <p class="result a3"></p>
 
     <h3><span>한라산이</span> <input type="text" class="inp" data-answer="한라산이"></h3>
-    <p class="result"></p>
+    <p class="result a4"></p>
 
     <p id="fin"></p>
 
@@ -27,6 +27,40 @@
         let 입력들 = document.querySelectorAll(".inp");
         let 결과들 = document.querySelectorAll(".result");
         let 다 = document.getElementById("fin");
+
+        function checkAllInputs() {
+            let allFilled = true;
+            입력들.forEach((input) => {
+                if (input.value.trim() === '') {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                다.textContent = '';
+                return;
+            }
+
+            let allCorrect = true;
+            let allWrong = true;
+
+            결과들.forEach((res) => {
+                if (res.textContent === '틀림') {
+                    allCorrect = false;
+                }
+                if (res.textContent === '맞음') {
+                    allWrong = false;
+                }
+            });
+
+            if (allCorrect) {
+                document.write('캬ㅑㅑㅑ~~~')
+            } else if (allWrong) {
+                document.write('다틀림???????')
+            } else {
+                document.write('애매함')
+            }
+        }
 
         입력들.forEach((입력, index) => {
             입력.addEventListener('keypress', (event) => {
@@ -37,20 +71,7 @@
                     } else {
                         결과.textContent = '틀림';
                     }
-
-                    // 모든 결과 검사
-                    let allWrong = true;
-                    결과들.forEach((res) => {
-                        if (res.textContent === '맞음') {
-                            allWrong = false;
-                        }
-                    });
-
-                    if (allWrong) {
-                        다.textContent = '바보';
-                    } else {
-                        다.textContent = '';
-                    }
+                    checkAllInputs();
                 }
             });
         });
