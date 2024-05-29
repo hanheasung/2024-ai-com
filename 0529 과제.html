@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마춤뻡 검사기</title>
 </head>
 <body>
+    <h1>앵국가 타자연습</h1>
+    <hr>
+    <h2>값을 입력하면 맞는지 점검함</h2>
+    <h3><span>동해물과</span> <input type="text" class="inp" data-answer="동해물과"></h3>
+    <p class="result"></p>
+
+    <h3><span>서해물이</span> <input type="text" class="inp" data-answer="서해물이"></h3>
+    <p class="result"></p>
+
+    <h3><span>백두산이</span> <input type="text" class="inp" data-answer="백두산이"></h3>
+    <p class="result"></p>
+
+    <h3><span>한라산이</span> <input type="text" class="inp" data-answer="한라산이"></h3>
+    <p class="result"></p>
+
+    <p id="finalResult"></p>
 
     <script>
-        
+        let 입력들 = document.querySelectorAll(".inp");
+        let 결과들 = document.querySelectorAll(".result");
+        let 최종결과 = document.getElementById("finalResult");
+
+        입력들.forEach((입력, index) => {
+            입력.addEventListener('keypress', (event) => {
+                if (event.key === 'Enter') {
+                    let 결과 = 결과들[index];
+                    if (입력.value === 입력.getAttribute('data-answer')) {
+                        결과.textContent = '맞음';
+                    } else {
+                        결과.textContent = '틀림';
+                    }
+
+                    // 모든 결과 검사
+                    let allWrong = true;
+                    결과들.forEach((res) => {
+                        if (res.textContent === '맞음') {
+                            allWrong = false;
+                        }
+                    });
+
+                    if (allWrong) {
+                        최종결과.textContent = '바보';
+                    } else {
+                        최종결과.textContent = '';
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
