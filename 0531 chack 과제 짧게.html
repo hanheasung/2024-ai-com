@@ -3,36 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주문 가격 계산</title>
+    <title>Document</title>
 </head>
 <body>
-
     <h1>주문서</h1>
-    <label for="">
-        <input type="checkbox"  value="16000">치킨 16,000원/<br>
-        <input type="checkbox"  value="20000">초밥 20,000원/<br>
-        <input type="checkbox"  value="5000">순대 5,000원/
-    </label>
-
+    <h3>먹고 싶은 메뉴를 선택합니다</h3>
+    <div>
+        <label for="chicken"><input type="checkbox" id="chicken" value='16000' name="food"> 치킨 16,000 \</label><br><br>
+        <label for="sushi"><input type="checkbox" id="sushi" value='20000' name="food"> 초밥 20,000 \</label><br><br>
+        <label for="sausage"><input type="checkbox" id="sausage" value= '5000' name="food"> 순대 5,000 \</label>
+    </div>
     <hr>
-
-    <h1>총 가격: <span class="total">0</span>원</h1>
-
+    <h2>가격 : <span id="result">0</span> \</h2>
 
     <script>
-        let 음 = document.querySelector('label')
-        let 들 = document.querySelector('.total')
-        음.addEventListener('change',(e) => {
-            if(e.target.checkbox ==true) {
-                음 += Number(e.target.checkbox)
-            }
-            else {
-                
-            }
-        })
-  
-        
-    </script>
+        const div = document.querySelector('div');
+        const result = document.querySelector('#result');
 
+        div.addEventListener('change', (e) => {
+            if (e.target.checked) {
+                result.textContent = Number(result.textContent) + Number(e.target.value);
+            } else {
+                result.textContent = Number(result.textContent) - Number(e.target.value);
+            }
+        });
+    </script>
 </body>
 </html>
