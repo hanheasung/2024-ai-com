@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> 가격 제고 표시</title>
 </head>
 <body>
-    
+    <h1 id="title"></h1>
+    <p id="price"></p>
+    <p id="stock"></p>
+
     <script>
-        a=2
-        b=3
-        function add(a, b) {
-  return a + b;
-}
+        let 등록됨 = {title: '자바스크립트 입문' ,price: 2500 ,stock: 3};
+        
+        document.getElementById('title').textContent = 등록됨.title;
+        document.getElementById('price').textContent = 등록됨.price + '원';
+        document.getElementById('stock').textContent = 등록됨.stock;
     </script>
 </body>
 </html>
