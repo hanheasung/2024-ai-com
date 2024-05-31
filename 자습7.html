@@ -5,37 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>몬스터 물리치기</title>
     <style>
-        button{margin: 0 auto;}
-     
+        button {
+            display: block;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #status {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <button><h1>몬스터</h1></button>
-
+    <button id="monsterButton"><h1>몬스터</h1></button>
+    <div id="status">몬스터 체력: 100</div>
 
     <script>
         var mon = 100;
-        var att = document.addEventListener('click',function(){
-            
-        })
+        var monsterButton = document.getElementById('monsterButton');
+        var statusDiv = document.getElementById('status');
 
+      
+        monsterButton.addEventListener('click', function() {
+            if (mon > 0) {
+                var att = Math.floor(Math.random() * 30) + 1;
+                mon -= att;
+                if (mon < 0) {
+                    mon = 0;
+                }
+                statusDiv.textContent = '몬스터에게 ' + att + '의 피해를 입혔다. 현재 체력: ' + mon;
+                if (mon === 0) {
+                    statusDiv.textContent = '몬스터를 물리쳤다';
+                    window.alert('종료');
+                }
+            }
+        });
 
-
-
-
-        window.alert('대전시작');
-
-        if(mon >0 ) {
-            
-            att = Math.floor(Math.random() * 30) +1;
-            document.write('몬스터에게' + att + '의 피해를 입혔다');
-            mon -= att;
-
-        }
-        else{
-        document.write('몬스터를 물리쳤다');}
-
+        window.alert('대전 시작!');
     </script>
 </body>
 </html>
