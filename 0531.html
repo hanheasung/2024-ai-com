@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 발생 객체,this</title>
+    <style>
+        div{height: 150px;background-color: aqua;}
+    </style>
+</head>
+<body>
+    <div>
+        <h1>이벤트 발생한 객체에 대해</h1>
+    </div>
+
+    <script>
+        const div태그 = document.querySelector('div')
+        const h1태그 = document.querySelector('div')
+
+        h1태그.addEventListener("click",(event) => {
+            console.log('h1태그 클릭')
+            console.log('event.target',event.target)
+            console.log('event.target',event.target)
+            console.log('event.currrentTarget',event.currentTarget)
+            console.log('this',this)
+
+        })
+    </script>
+
+
+    
+</body>
+</html>
