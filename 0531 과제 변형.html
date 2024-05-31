@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>단위 변환</title>
+</head>
+<body>
+    <h1>단위 변환</h1>
+
+    <h3>cm을 선택한 단위로 변환시킵니다</h3>
+
+    <div><input type="text" class="aa">cm</div>
+
+    <h3>변환 </h3>
+
+    <div>
+        <input type="text" class="bb">
+        <select name="" id="">
+            <option value="inch">인치</option>
+            <option value="mm">미리미터</option>
+
+        </select>
+    </div>
+
+    <script>
+        let 입력 = document.querySelector('.aa');
+        let 출력 = document.querySelector('.bb');
+        let 선택 = document.querySelector('select');
+
+        function 변환() {
+            let cm = parseFloat(입력.value);
+            let 단위 = 선택.value;
+            let 결과;
+
+
+            switch (단위) {
+                case 'inch':
+                    결과 = cm / 2.5;
+                    break;
+                case 'mm':
+                    결과 = cm * 10;
+                    break;
+
+                default:
+                    결과 = '먼가먼가임'
+
+            }
+
+            출력.value = 결과;
+        }
+
+        입력.addEventListener('input', 변환);
+        선택.addEventListener('change', 변환);
+    </script>
+</body>
+</html>
