@@ -18,27 +18,41 @@
 
     <div>
         <input type="text" class="bb">
-        <select id="unitSelect">
+        <select id="un">
             <option value="inch">인치</option>
             <option value="mm">미리미터</option>
         </select>
     </div>
 
     <script>
-        document.querySelector('.aa').addEventListener('input', convert);
-        document.querySelector('#unitSelect').addEventListener('change', convert);
+ 
+        const inputField = document.querySelector('.aa');
+        const unitSelect = document.querySelector('#un');
+        const outputField = document.querySelector('.bb');
 
+        inputField.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                convert();
+            }
+        });
+
+        unitSelect.addEventListener('change', convert);
+
+      
         function convert() {
-            let cm = parseFloat(document.querySelector('.aa').value);
+            const cm = parseFloat(inputField.value);
+            if (isNaN(cm)) {
+                outputField.value = "숫자를 입력하세요";
+                return;
+            }
 
-
-            let unit = document.querySelector('#unitSelect').value;
+            const unit = unitSelect.value;
             if (unit === 'inch') {
-                document.querySelector('.bb').value = cm / 2.5;
+                outputField.value = cm / 2.5;
             } else if (unit === 'mm') {
-                document.querySelector('.bb').value = cm * 10;
+                outputField.value = cm * 10;
             } else {
-                document.querySelector('.bb').value = "잘못된 단위";
+                outputField.value = "잘못된 단위"; 
             }
         }
     </script>
