@@ -29,7 +29,7 @@
         var monsterButton = document.getElementById('monsterButton');
         var statusDiv = document.getElementById('status');
 
-      
+      if (mon !=0) {
         monsterButton.addEventListener('click', function() {
             if (mon > 0) {
                 var att = Math.floor(Math.random() * 30) + 1;
@@ -41,11 +41,13 @@
                 if (mon === 0) {
                     statusDiv.textContent = '몬스터를 물리쳤다';
                     window.alert('막타');
+                  
                 }
 
             }
-        });
+        });  }
 
+ 
         window.alert('대전 시작!');
     </script>
 </body>
