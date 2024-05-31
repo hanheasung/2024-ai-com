@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주문 가격 계산</title>
+</head>
+<body>
+
+    <h1>주문서</h1>
+
+    <label><input type="checkbox" class="음식" data-price="16000">치킨 16,000원</label><br>
+    <label><input type="checkbox" class="음식" data-price="20000">초밥 20,000원</label><br>
+    <label><input type="checkbox" class="음식" data-price="5000">순대 5,000원</label>
+
+
+    <hr>
+
+    <div>
+        <h1>총 가격: <span class="total">0</span>원</h1>
+    </div>
+
+    <script>
+        let 음식들 = document.querySelectorAll('.음식');
+        let totalPriceElement = document.querySelector('.total');
+        
+        function cal() {
+            let totalPrice = 0;
+            for (let i = 0; i < 음식들.length; i++) {
+                if (음식들[i].checked) {
+                    totalPrice += parseInt(음식들[i].dataset.price);
+                }
+            }
+            totalPriceElement.textContent = totalPrice;
+        }
+
+        for (let i = 0; i < 음식들.length; i++) {
+            음식들[i].addEventListener('change', cal);
+        }
+    </script>
+
+</body>
+</html>
