@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>폼의 입력내용 가져오기</title>
+</head>
+<body>
+<section>
+    <form action="#" id="form">
+        <input type="submit" value="검색">
+    </form>
+</section>
+
+    <script>
+        document.getElementById('form').onsubmit = function() {
+            console.log('클릭함')
+        };
+    </script>
+    
+</body>
+</html>
