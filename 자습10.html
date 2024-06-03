@@ -7,12 +7,14 @@
 </head>
 <body>
 
-    
+    <section>
+        <p>지금부터 <span id="timer"></span>이내 주문하면 반 할인</p>
+    </section>
     <script>
         let 시간 = function(due) {
             let 지금 = new Date();
 
-            let rest = due.getTime() - now.getTime();
+            let rest = due.getTime() - 지금.getTime();
             let sec = Math.floor(rest / 1000 % 60);
             let min = Math.floor(rest / 1000 / 60) %60;
             let hours = Math.floor(rest / 1000 / 60 / 60) % 24;
@@ -22,6 +24,18 @@
 
 
         }
+
+        let goal = new Date();
+        goal.setHours(23);
+        goal.setMinutes(59);
+        goal.setSeconds(59);
+
+        console.log(시간(goal));
+        let counter = 시간(goal);
+        let time = counter[1] + '시간' + counter[2] + '분' +counter[3] +'초';
+        document.getElementById('timer').textContent = time;
+
+
     </script>
 </body>
 </html>
