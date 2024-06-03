@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>입력내용 출력</title>
+    <title>입력내용 출력,검색의 구조</title>
 </head>
 <body>
     <section>
@@ -15,5 +15,13 @@
     </section>
    
     
+
+    <script>
+        document.getElementById('form').onsubmit = function() {
+            let search = document.getElementById('form').word.value;
+            document.getElementById('output').textContent = search +'검색중 ...'
+            return false;// 새로고침 못하게 함
+        }
+    </script>
 </body>
 </html>
