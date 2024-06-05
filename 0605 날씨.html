@@ -4,36 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Info</title>
+    <style>
+        h1 {
+            border-radius: 10px;
+            font-size: 50px;
+            text-align: center;
+            border: solid;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #adff2f, #ff4500, #ffd700);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #333;
+        }
+        img {
+            height: 100px;
+            border-radius: 50%;
+        }
+        #weather {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+        }
+        #weather p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        #weather .temp {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff4500;
+        }
+        #weather .description {
+            font-size: 20px;
+            color: #4682b4;
+        }
+        select, button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4682b4;
+            color: white;
+            cursor: pointer;
+        }
+        select {
+            background-color: white;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <h1>현재 날씨</h1>
+    <h1><img id="header-img" src="/쉿.jpg" alt=""> 현재 날씨 <img id="header-img-right" src="/쉿.jpg" alt=""></h1>
+    <select id="city-select" onchange="updateWeather()">
+        <option value="Seoul" data-img="/쉿.jpg">서울</option>
+        <option value="New York" data-img="https://img.hankyung.com/photo/202312/01.35342154.1.jpg">뉴욕</option>
+        <option value="London" data-img="https://image.edaily.co.kr/images/photo/files/NP/S/2016/12/PS16120601239.jpg">런던</option>
+        <option value="Tokyo" data-img="https://th.bing.com/th/id/R.ca70cd3f0d69abce1ec076a5e003280b?rik=C4MTDv86NesQVA&riu=http%3a%2f%2fimage.ytn.co.kr%2fosen%2f2015%2f10%2f201510292007771108_5631fe9b4b8f9.jpg&ehk=EtIgo2chxVukLLcwD7DjrxQrKKoHf4PyDLBhcESlI1Y%3d&risl=&pid=ImgRaw&r=0">도쿄</option>
+        <option value="Paris" data-img="https://img.sbs.co.kr/newimg/news/20210118/201511945_1280.jpg">파리</option>
+    </select>
     <div id="weather"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       const apiKey = 'ffa5ec3ccb20f84bb86d7685ec688457';
-      const city = 'Seoul'; 
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`)
-        .then(function (response) {
-      
-          const weatherData = response.data;
-          const weatherDiv = document.getElementById('weather');
-          
-          const weatherInfo = `
-            <p>도시: ${weatherData.name}</p>
-            <p>온도: ${weatherData.main.temp} °C</p>
-            <p>날씨: ${weatherData.weather[0].description}</p>
-            <p>습도: ${weatherData.main.humidity} %</p>
-          `;
-          
-          weatherDiv.innerHTML = weatherInfo;
-        })
-        .catch(function (error) {
-          // 에러 핸들링
-          console.log('에러 발생:', error);
-          const weatherDiv = document.getElementById('weather');
-          weatherDiv.innerHTML = '<p>날씨 정보를 불러오는 데 실패했습니다.</p>';
-        });
+
+      function updateWeather() {
+        const citySelect = document.getElementById('city-select');
+        const selectedCity = citySelect.options[citySelect.selectedIndex].value;
+        const selectedImage = citySelect.options[citySelect.selectedIndex].getAttribute('data-img');
+
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}&units=metric&lang=kr`)
+          .then(function (response) {
+            const weatherData = response.data;
+            const weatherDiv = document.getElementById('weather');
+
+            const weatherInfo = `
+              <p>도시: ${weatherData.name}</p>
+              <p class="temp">온도: ${weatherData.main.temp} °C</p>
+              <p class="description">날씨: ${weatherData.weather[0].description}</p>
+              <p>습도: ${weatherData.main.humidity} %</p>
+            `;
+
+            weatherDiv.innerHTML = weatherInfo;
+            document.getElementById('header-img').src = selectedImage;
+            document.getElementById('header-img-right').src = selectedImage;
+          })
+          .catch(function (error) {
+            console.log('에러 발생:', error);
+            const weatherDiv = document.getElementById('weather');
+            weatherDiv.innerHTML = '<p>날씨 정보를 불러오는 데 실패했습니다.</p>';
+          });
+      }
+
+      // 초기 날씨 정보를 로드
+      updateWeather();
     </script>
 </body>
 </html>
