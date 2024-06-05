@@ -6,6 +6,18 @@
     <title></title>
 </head>
 <body>
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      //  const axios = require('axios');
+
+// 지정된 ID를 가진 유저에 대한 요청
+axios.get('https://ddragon.leagueoflegends.com/cdn/14.1.1/data/ko_KR/champion.json')
+  .then(function (response) {
+    // 성공 핸들링
+    console.log(response);
+  })
+ //ffa5ec3ccb20f84bb86d7685ec688457 api키
+    </script>
 </body>
 </html>
