@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Info</title>
+</head>
+<body>
+    <h1>현재 날씨</h1>
+    <div id="weather"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      const apiKey = 'ffa5ec3ccb20f84bb86d7685ec688457';
+      const city = 'Seoul'; 
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`)
+        .then(function (response) {
+      
+          const weatherData = response.data;
+          const weatherDiv = document.getElementById('weather');
+          
+          const weatherInfo = `
+            <p>도시: ${weatherData.name}</p>
+            <p>온도: ${weatherData.main.temp} °C</p>
+            <p>날씨: ${weatherData.weather[0].description}</p>
+            <p>습도: ${weatherData.main.humidity} %</p>
+          `;
+          
+          weatherDiv.innerHTML = weatherInfo;
+        })
+        .catch(function (error) {
+          // 에러 핸들링
+          console.log('에러 발생:', error);
+          const weatherDiv = document.getElementById('weather');
+          weatherDiv.innerHTML = '<p>날씨 정보를 불러오는 데 실패했습니다.</p>';
+        });
+    </script>
+</body>
+</html>
