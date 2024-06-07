@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+</head>
+<body>
+    <h1 class="로또"></h1>
+    <h1 class="로또"></h1>
+    <h1 class="로또"></h1>
+    <h1 class="로또"></h1>
+    <h1 class="로또"></h1>
+    <script>
+        let 로또들 = document.querySelectorAll(".로또");
+        let 숫자들 = [];
+        let 카운트 = 0;
+
+        while  (카운트 < 로또들.length) {
+            let 랜덤숫자 = Math.floor(Math.random() * 10) + 1;
+            let 중복여부 = false;
+            for (let i = 0; i < 숫자들.length; i++) {
+                if (숫자들[i] === 랜덤숫자) {
+                    중복여부 = true;
+                    break;
+                }
+            }
+            if (!중복여부) {
+                로또들[카운트].textContent = 랜덤숫자;
+                숫자들.push(랜덤숫자);
+                카운트++;   
+            }
+        }
+
+    </script>
+</body>
+</html>
