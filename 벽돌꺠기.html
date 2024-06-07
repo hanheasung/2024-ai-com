@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>벽돌깨기</title>
+    <style>
+        canvas { background: #c9c9c9; }
+    </style>
+</head>
+<body>
+    <canvas id="내캔버스" width="50%" height="50%"></canvas>
+
+    <script>
+        var 캔버스 = document.getElementById("내캔버스");
+        var ctx = 캔버스.getContext("2d");
+        var 공반지름 = 10;
+        var x = 캔버스.width / 2;
+        var y = 캔버스.height - 30;
+        var dx = 2;
+        var dy = -2;
+        var 패들높이 = 10;
+        var 패들너비 = 75;
+        var 패들X = (캔버스.width - 패들너비) / 2;
+        var 오른쪽눌림 = false;
+        var 왼쪽눌림 = false;
+        var 벽돌줄수 = 5;
+        var 벽돌칸수 = 3;
+        var 벽돌너비 = 75;
+        var 벽돌높이 = 20;
+        var 벽돌여백 = 10;
+        var 벽돌위여백 = 30;
+        var 벽돌왼여백 = 30;
+        var 점수 = 0;
+        var 목숨 = 3;
+
+        var 벽돌들 = [];
+        for (var c = 0; c < 벽돌칸수; c++) {
+            벽돌들[c] = [];
+            for (var r = 0; r < 벽돌줄수; r++) {
+                벽돌들[c][r] = { x: 0, y: 0, 상태: 1 };
+            }
+        }
+
+        document.addEventListener("keydown", 키다운처리기, false);
+        document.addEventListener("keyup", 키업처리기, false);
+        document.addEventListener("mousemove", 마우스움직임처리기, false);
+
+        function 키다운처리기(e) {
+            if (e.key == "Right" || e.key == "ArrowRight") {
+                오른쪽눌림 = true;
+            } else if (e.key == "Left" || e.key == "ArrowLeft") {
+                왼쪽눌림 = true;
+            }
+        }
+
+        function 키업처리기(e) {
+            if (e.key == "Right" || e.key == "ArrowRight") {
+                오른쪽눌림 = false;
+            } else if (e.key == "Left" || e.key == "ArrowLeft") {
+                왼쪽눌림 = false;
+            }
+        }
+
+        function 마우스움직임처리기(e) {
+            var 상대X = e.clientX - 캔버스.offsetLeft;
+            if (상대X > 0 && 상대X < 캔버스.width) {
+                패들X = 상대X - 패들너비 / 2;
+            }
+        }
+
+        function 충돌탐지() {
+            for (var c = 0; c < 벽돌칸수; c++) {
+                for (var r = 0; r < 벽돌줄수; r++) {
+                    var b = 벽돌들[c][r];
+                    if (b.상태 == 1) {
+                        if (x > b.x && x < b.x + 벽돌너비 && y > b.y && y < b.y + 벽돌높이) {
+                            dy = -dy;
+                            b.상태 = 0;
+                            점수++;
+                            if (점수 == 벽돌줄수 * 벽돌칸수) {
+                                alert("YOU WIN, CONGRATS!");
+                                document.location.reload();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function 공그리기() {
+            ctx.beginPath();
+            ctx.arc(x, y, 공반지름, 0, Math.PI * 2);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function 패들그리기() {
+            ctx.beginPath();
+            ctx.rect(패들X, 캔버스.height - 패들높이, 패들너비, 패들높이);
+            ctx.fillStyle = "#0095DD";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function 벽돌들그리기() {
+            for (var c = 0; c < 벽돌칸수; c++) {
+                for (var r = 0; r < 벽돌줄수; r++) {
+                    if (벽돌들[c][r].상태 == 1) {
+                        var 벽돌X = (r * (벽돌너비 + 벽돌여백)) + 벽돌왼여백;
+                        var 벽돌Y = (c * (벽돌높이 + 벽돌여백)) + 벽돌위여백;
+                        벽돌들[c][r].x = 벽돌X;
+                        벽돌들[c][r].y = 벽돌Y;
+                        ctx.beginPath();
+                        ctx.rect(벽돌X, 벽돌Y, 벽돌너비, 벽돌높이);
+                        ctx.fillStyle = "#0095DD";
+                        ctx.fill();
+                        ctx.closePath();
+                    }
+                }
+            }
+        }
+
+        function 점수그리기() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Score: " + 점수, 8, 20);
+        }
+
+        function 목숨그리기() {
+            ctx.font = "16px Arial";
+            ctx.fillStyle = "#0095DD";
+            ctx.fillText("Lives: " + 목숨, 캔버스.width - 65, 20);
+        }
+
+        function 그리기() {
+            ctx.clearRect(0, 0, 캔버스.width, 캔버스.height);
+            벽돌들그리기();
+            공그리기();
+            패들그리기();
+            점수그리기();
+            목숨그리기();
+            충돌탐지();
+
+            if (x + dx > 캔버스.width - 공반지름 || x + dx < 공반지름) {
+                dx = -dx;
+            }
+            if (y + dy < 공반지름) {
+                dy = -dy;
+            } else if (y + dy > 캔버스.height - 공반지름) {
+                if (x > 패들X && x < 패들X + 패들너비) {
+                    dy = -dy;
+                } else {
+                    목숨--;
+                    if (!목숨) {
+                        alert("GAME OVER");
+                        document.location.reload();
+                    } else {
+                        x = 캔버스.width / 2;
+                        y = 캔버스.height - 30;
+                        dx = 3;
+                        dy = -3;
+                        패들X = (캔버스.width - 패들너비) / 2;
+                    }
+                }
+            }
+
+            if (오른쪽눌림 && 패들X < 캔버스.width - 패들너비) {
+                패들X += 7;
+            } else if (왼쪽눌림 && 패들X > 0) {
+                패들X -= 7;
+            }
+
+            x += dx;
+            y += dy;
+            requestAnimationFrame(그리기);
+        }
+
+        그리기();
+    </script>
+</body>
+</html>
