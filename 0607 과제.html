@@ -1,47 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>군입대 가능 계산</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>입대일 만 19세 되는 날 기준</h1>
-    <hr>
-    <label for="bi">
-        <input type="text" id="bi" placeholder="양식:2001.1.1">
-        <button id="cal">계산</button>
-    </label>
-    <p id="result"></p>
 
+    <input type="text" placeholder="예: 2001.1.1"><button>계산</button>
+    <h1 id="aaa"></h1>
     <script>
-        document.getElementById('cal').addEventListener('click', () => {
-            const birthdateInput = document.getElementById('bi').value;
-            const result = document.getElementById('result');
-            const birthdateParts = birthdateInput.split('.');
+        let num = document.querySelector("input")
+        let but = document.querySelector("button")
+        const 결과 = document.getElementById('aaa');
+        
 
-            if (birthdateParts.length === 3) {
-                const year = parseInt(birthdateParts[0], 10);
-                const month = parseInt(birthdateParts[1], 10) - 1;
-                const day = parseInt(birthdateParts[2], 10);
+        but.addEventListener("click", function(){
+            let val = num.value
+            let list = val.split(".")
+            let year = list[0]
+            let month = list[1]
+            let date = list[2]
+            if(year <= 2004){
+                console.log("입대가능")
+                결과.textContent = '입대'
 
-                if (!isNaN(year) && !isNaN(month) && !isNaN(day)) {
-                    const birthdate = new Date(year, month, day);
-                    const enlistmentDate = new Date(year + 19, month, day);
-                    const currentDate = new Date();
-
-                    if (currentDate >= enlistmentDate) {
-                        result.textContent = '입대 가능합니다.';
-                    } else {
-                        result.textContent = '아직 입대할 수 없습니다.';
-                    }
-                } else {
-                    result.textContent = '다시';
-                }
-            } else {
-                result.textContent = '다시시';
             }
-        });
+            if(year == 2005){
+                if(month <= 5){
+                    console.log("입대가능")
+                    결과.textContent = '입대'
+                    
+                }
+                if(month == 6){
+                    if(date >= 7){
+                        console.log("입대X")
+                        결과.textContent = '입대 ㄴㄴ'
+                    }
+                    if(date <= 6){
+                        console.log("입대가능")
+                        결과.textContent = '입대'
+                    }
+                }
+                if(month >= 7){
+                    console.log("입대X")
+                    결과.textContent = '입대ㄴㄴ'
+                }
+            }
+            if(year >= 2006){
+                console.log("입대x")
+                결과.textContent = '입대ㄴㄴ'
+            }
+        })
     </script>
 </body>
 </html>
