@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>군입대 가능 계산</title>
+</head>
+<body>
+    <h1>입대일 만 19세 되는 날 기준</h1>
+    <hr>
+    <label for="birthdate">
+        <input type="text" id="birthdate" placeholder="양식:2001.1.1">
+        <button id="calculate">계산</button>
+    </label>
+    <p id="result"></p>
+
+    <script>
+        document.getElementById('calculate').addEventListener('click', () => {
+            const birthdateInput = document.getElementById('birthdate').value;
+            const result = document.getElementById('result');
+
+        
+            const birthdateParts = birthdateInput.split('.');
+            if (birthdateParts.length !== 3) {
+                result.textContent = '올바른 날짜 형식을 입력해주세요 (예: 2001.1.1)';
+                return;
+            }
+
+            const year = parseInt(birthdateParts[0], 10);
+            const month = parseInt(birthdateParts[1], 10) - 1;
+            const day = parseInt(birthdateParts[2], 10);
+
+            if (isNaN(year) || isNaN(month) || isNaN(day)) {
+                result.textContent = '올바른 날짜 형식을 입력해주세요 (예: 2001.1.1)';
+                return;
+            }
+
+            const birthdate = new Date(year, month, day);
+
+            const enlistmentDate = new Date(year + 19, month, day);
+
+            result.textContent = `만 19세가 되는 날짜: ${enlistmentDate.getFullYear()}년 ${enlistmentDate.getMonth() + 1}월 ${enlistmentDate.getDate()}일`;
+        });
+    </script>
+</body>
+</html>
