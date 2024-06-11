@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{width: 100px;height: 100px;border: solid;}
+        .translate{transform: translate(x위치,y위치);}/*위치 바꾸기 */
+        .rotate{transform:rotate(45deg);}/*돌리는거*/
+        .scale{transform:scale(3);}/*크기*/
+        .skew{transform:skew(30deg,-10deg);}/*크기*/
+        body{position: relative;}
+        .usage{position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);}
+        .transition{width: 100px;height: 100px;background-color: aqua;transition:background-color 1s ease 2s  ;opacity: 0~1;/*투명도*/}
+        .transition:hover{background-color: blue;}
+    </style>
+</head>
+<body>
+    <h1>transform: 디자인 바꾸기</h1>
+    <div class="translate"></div>
+    <div class="rotate"></div>
+    <div class="scale"></div>
+    <div class="skew"></div>
+
+    <div class="usage"></div>
+
+    <div class="transition"></div>
+    
+</body>
+</html>
