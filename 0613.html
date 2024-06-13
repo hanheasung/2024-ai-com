@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공개수업  날씨만들기</title>
-    
-
 </head>
 <body>
 
+    <h1>현재 날씨</h1>
+    <div id="weather"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script>axios.get(`https://api.openweathermap.org/data/2.5/weather?q={seoul}&appid={ffa5ec3ccb20f84bb86d7685ec688457}`)
+    <script>
+      const apiKey = 'ffa5ec3ccb20f84bb86d7685ec688457';
+      const city = 'Seoul'; 
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`)
         .then(function (response) {
-            console.log(response)
-            document.write(response.data.main.temp-273)
-            document.write("<br>체감온도:",)
-            document.write("<br>풍속:",)
-            document.write("<br>습도:",)
-
-        })</script>
-
+          const weatherData = response.data;
+          const weatherDiv = document.getElementById('weather');
+          
+          const weatherInfo = `
+            <p>도시: ${weatherData.name}</p>
+            <p class="temp">온도: ${weatherData.main.temp} °C</p>
+            <p class="description">날씨: ${weatherData.weather[0].description}</p>
+            <p>습도: ${weatherData.main.humidity} %</p>
+          `;
+          
+          weatherDiv.innerHTML = weatherInfo;
+        })
+        .catch(function (error) {
+          console.log('에러 발생:', error);
+          const weatherDiv = document.getElementById('weather');
+          weatherDiv.innerHTML = '<p>날씨 정보를 불러오는 데 실패했습니다.</p>';
+        });
+    </script>
     
 </body>
 </html>
