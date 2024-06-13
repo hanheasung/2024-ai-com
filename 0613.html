@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공개수업  날씨만들기</title>
+    
+
+</head>
+<body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>axios.get(`https://api.openweathermap.org/data/2.5/weather?q={seoul}&appid={ffa5ec3ccb20f84bb86d7685ec688457}`)
+        .then(function (response) {
+            console.log(response)
+            document.write(response.data.main.temp-273)
+            document.write("<br>체감온도:",)
+            document.write("<br>풍속:",)
+            document.write("<br>습도:",)
+
+        })</script>
+
+    
+</body>
+</html>
