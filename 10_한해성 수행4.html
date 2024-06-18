@@ -19,40 +19,69 @@
             }
         .mom{
             width: 1000px;height: 500px;
-             background: linear-gradient(to left, #ff8800, #363332, #002fff);
+             background: linear-gradient(to left, #ff8800, #262424, #002fff);
              border-radius: 20px;
              margin:0 auto;
              
             }
 
         img {
-            height: 200px;
-            width: 300px;
+            height: 200px; width: 300px;
             position: relative;
             left: 60%;
             top: 20px;
         }
-        #weather {display: flex;
+        #weather {
+            display: flex;
+            margin: auto;
+            gap: 20px;
      
         }
  
         #weather .temp {
-            color: #ff4500;
+            color: #ff8400;
         }
         #weather .description {
             color: #4682b4;
         }
+     
         select, button {
             margin-top: 20px;
             border: none;
-            width: 60px;
-            height: 30px;
+            width: 60px;height: 30px;
             font-size: 20px;
+            position: relative;
+            left: 10px;
+            top: 15%;
         }
-        .box2{width: 800px;height: 300px;background-color: white;border-radius: 20px;margin:0 auto;margin-top: 20px;}
-        #weathers{position: relative;top: -50%;
+        .box2{
+            width: 800px;height: 300px;
+            background-color: white;
+            border-radius: 20px;
+            margin:0 auto;
+            margin-top: 20px;
+        }
+        #weathers{position: relative;
+            top: -50%;
 
         }
+        #ii{
+            width: 50px;height: 50px;
+            position: relative;
+            left: -10%;
+            top: 20%;
+        }
+        
+        #weathers .feels_like{
+            color: #ff0000;
+        }
+        #weathers .speed{
+            color: #1100ff;
+        }
+        #weathers .humidity{
+            color: #00d9ff;
+        }
+        body{background-color: aqua;}
     </style>
 </head>
 <body>  
@@ -69,6 +98,7 @@
                 <option value="Paris" data-img="https://th.bing.com/th/id/R.f26b11184c7594952f5a97ea4d41943f?rik=SKkaGDaoOwnhrA&riu=http%3a%2f%2fdh.aks.ac.kr%2fEdu%2fwiki%2fimages%2fthumb%2fa%2faf%2f%ed%94%84%eb%9e%91%ec%8a%a4%ea%b5%ad%ea%b8%b0.jpg%2f300px-%ed%94%84%eb%9e%91%ec%8a%a4%ea%b5%ad%ea%b8%b0.jpg&ehk=gVcgj4nP%2bW49Xd39HP2droQRnmwHc8A2akqu9b8LuFs%3d&risl=&pid=ImgRaw&r=0">파리</option>
             </select>
             <div id="weather"></div>
+            <img src="https://cdn.icon-icons.com/icons2/1621/PNG/512/3741356-sun-sunny-weather_108871.png" alt="" id ='ii'>
             
         </div>
         <div class="box2">
@@ -100,13 +130,13 @@
 
             const weatherInfo = `
               <p class="temp">온도: ${weatherData.main.temp} °C</p>
-              <p class="description">날씨: ${weatherData.weather[0].description}</p>
+              <p class="description">날씨: ${weatherData.weather[0].description} </p>
           
             `;
             const weather2 = `
-              <p>체감온도: ${weatherData.main.feels_like} °C </p>
-              <p>풍속: ${weatherData.wind.speed} (m/s)</p>
-              <p>습도: ${weatherData.main.humidity} %</p>
+              <p class='feels_like'>체감온도: ${weatherData.main.feels_like} °C </p>
+              <p class='speed'>풍속: ${weatherData.wind.speed} (m/s)</p>
+              <p class='humidity'>습도: ${weatherData.main.humidity} %</p>
             `;
 
             weatherDiv.innerHTML = weatherInfo;
