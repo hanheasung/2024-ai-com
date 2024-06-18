@@ -5,35 +5,110 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10_한해성</title>
     <style>
+        .box{
+            display: flex;
+            width: 300px;height: 100px;
+             background-color: white;
+             border-radius: 20px;
+             margin:0 auto;
+             margin-top: 10px;
+             position: relative;
+             top: 10px;
+            }
+        .mom{
+            width: 1000px;height: 500px;
+             background: linear-gradient(to left, #ff8800, #363332, #002fff);
+             border-radius: 20px;
+             margin:0 auto;
+            }
+
+        img {
+            height: 200px;
+            width: 300px;
+            position: relative;
+            left: 60%;
+            top: 20px;
+        }
+        #weather {display: flex;
+     
+        }
+        #weather p {
+            margin: 10px 0;
+        }
+        #weather .temp {
+            font-weight: bold;
+            color: #ff4500;
+        }
+        #weather .description {
+            color: #4682b4;
+        }
+        select, button {
+            margin-top: 20px;
+            border: none;
+            width: 60px;
+            height: 30px;
+            font-size: 20px;
+        }
+        .box2{width: 800px;height: 300px;background-color: white;border-radius: 20px;margin:0 auto;margin-top: 20px;}
 
     </style>
 </head>
-<body>
-    <div id="weather"></div>
+<body>  
+    <div class="mom">
+
+        <div class="box">
+        
+            <select id="city-select" onchange="updateWeather()">
+
+                <option value="Seoul" data-img="https://cdn.pixabay.com/photo/2016/01/06/02/51/julia-roberts-1123541_640.jpg">서울</option>
+                <option value="New York" data-img="https://images.freeimages.com/images/large-previews/ef4/usa-flag-1151908.jpg">뉴욕</option>
+                <option value="London" data-img="https://cdn.pixabay.com/photo/2017/10/31/23/52/england-2906827__340.png">런던</option>
+                <option value="Tokyo" data-img="https://evewiki.kr/w/images/thumb/6/68/%EC%9D%BC%EB%B3%B8_%EA%B5%AD%EA%B8%B0.svg/1599px-%EC%9D%BC%EB%B3%B8_%EA%B5%AD%EA%B8%B0.svg.png?20220615165155">도쿄</option>
+                <option value="Paris" data-img="https://th.bing.com/th/id/R.f26b11184c7594952f5a97ea4d41943f?rik=SKkaGDaoOwnhrA&riu=http%3a%2f%2fdh.aks.ac.kr%2fEdu%2fwiki%2fimages%2fthumb%2fa%2faf%2f%ed%94%84%eb%9e%91%ec%8a%a4%ea%b5%ad%ea%b8%b0.jpg%2f300px-%ed%94%84%eb%9e%91%ec%8a%a4%ea%b5%ad%ea%b8%b0.jpg&ehk=gVcgj4nP%2bW49Xd39HP2droQRnmwHc8A2akqu9b8LuFs%3d&risl=&pid=ImgRaw&r=0">파리</option>
+            </select>
+            <div id="weather"></div>
+            
+        </div>
+        <div class="box2">
+            <img id="header-img" src="" alt="" >
+        </div>
+    </div>
+
+      
+  
+    </select>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
       const apiKey = 'ffa5ec3ccb20f84bb86d7685ec688457';
-      const city = 'Seoul'; 
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=kr`)
-        .then(function (response) {
-          const weatherData = response.data;
-          const weatherDiv = document.getElementById('weather');
+
+      function updateWeather() {
+        const citySelect = document.getElementById('city-select');
+        const selectedCity = citySelect.options[citySelect.selectedIndex].value;
+        const selectedImage = citySelect.options[citySelect.selectedIndex].getAttribute('data-img');
+
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}&units=metric&lang=kr`)
+          .then(function (response) {
+            const weatherData = response.data;
+            const weatherDiv = document.getElementById('weather');
+
+            const weatherInfo = `
+              <p class="temp">온도: ${weatherData.main.temp} °C</p>
+              <p class="description">날씨: ${weatherData.weather[0].description}</p>
           
-          const weatherInfo = `
-            <p>도시: ${weatherData.name}</p>
-            <p class="temp">온도: ${weatherData.main.temp} °C</p>
-            <p class="description">날씨: ${weatherData.weather[0].description}</p>
-            <p>습도: ${weatherData.main.humidity} %</p>
-          `;
-          
-          weatherDiv.innerHTML = weatherInfo;
-        })
-        .catch(function (error) {
-          console.log('에러 발생:', error);
-          const weatherDiv = document.getElementById('weather');
-          weatherDiv.innerHTML = '<p>날씨 정보를 불러오는 데 실패했습니다.</p>';
-        });
+            `;
+            const weather2 = `
+              <p>습도: ${weatherData.main.humidity} %</p>
+            `;
+
+            weatherDiv.innerHTML = weatherInfo;
+            document.getElementById('header-img').src = selectedImage;
+            document.getElementById('header-img-right').src = selectedImage;
+          })
+      
+      }
+      updateWeather();
     </script>
 </body>
 </html>
