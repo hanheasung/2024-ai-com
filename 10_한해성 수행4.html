@@ -7,19 +7,22 @@
     <style>
         .box{
             display: flex;
-            width: 300px;height: 100px;
+            width: 500px;height: 100px;
              background-color: white;
-             border-radius: 20px;
+             border-radius: 40px;
              margin:0 auto;
              margin-top: 10px;
              position: relative;
              top: 10px;
+             
+
             }
         .mom{
             width: 1000px;height: 500px;
              background: linear-gradient(to left, #ff8800, #363332, #002fff);
              border-radius: 20px;
              margin:0 auto;
+             
             }
 
         img {
@@ -32,11 +35,8 @@
         #weather {display: flex;
      
         }
-        #weather p {
-            margin: 10px 0;
-        }
+ 
         #weather .temp {
-            font-weight: bold;
             color: #ff4500;
         }
         #weather .description {
@@ -50,7 +50,9 @@
             font-size: 20px;
         }
         .box2{width: 800px;height: 300px;background-color: white;border-radius: 20px;margin:0 auto;margin-top: 20px;}
+        #weathers{position: relative;top: -50%;
 
+        }
     </style>
 </head>
 <body>  
@@ -71,6 +73,7 @@
         </div>
         <div class="box2">
             <img id="header-img" src="" alt="" >
+            <div id="weathers"></div>
         </div>
     </div>
 
@@ -87,11 +90,13 @@
         const citySelect = document.getElementById('city-select');
         const selectedCity = citySelect.options[citySelect.selectedIndex].value;
         const selectedImage = citySelect.options[citySelect.selectedIndex].getAttribute('data-img');
+        
 
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${apiKey}&units=metric&lang=kr`)
           .then(function (response) {
             const weatherData = response.data;
             const weatherDiv = document.getElementById('weather');
+            const weather22 = document.getElementById('weathers');
 
             const weatherInfo = `
               <p class="temp">온도: ${weatherData.main.temp} °C</p>
@@ -99,10 +104,13 @@
           
             `;
             const weather2 = `
+              <p>체감온도: ${weatherData.main.feels_like} °C </p>
+              <p>풍속: ${weatherData.wind.speed} (m/s)</p>
               <p>습도: ${weatherData.main.humidity} %</p>
             `;
 
             weatherDiv.innerHTML = weatherInfo;
+            weather22.innerHTML = weather2;
             document.getElementById('header-img').src = selectedImage;
             document.getElementById('header-img-right').src = selectedImage;
           })
