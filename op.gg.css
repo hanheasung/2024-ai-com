@@ -39,3 +39,32 @@ body{
     font-weight: 900;font-size: 15pt;
     cursor: pointer;
 }
+
+/*플레이어 정보 메뉴*/
+.player_menu{
+    height: 130px;
+    padding: 15px;
+    display: flex;
+
+}
+.player_menu .player{flex: 3; display: flex;}
+.player_menu .player img{width: 100px;}
+
+.solo{flex: 2;}
+.flex{flex: 2;}
+.solo img{width: 75px;}
+.flex img{width: 75px;}
+
+
+.sumary_menu{
+    display: flex;justify-content: space-around;
+    text-align: center;
+    padding: 20px;
+}
+
+.lately_position > div{
+    display: flex;
+    justify-content: space-between;
+
+}
+
