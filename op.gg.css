@@ -48,7 +48,7 @@ body{
 
 }
 .player_menu .player{flex: 3; display: flex;}
-.player_menu .player img{width: 100px;}
+.player_menu .player > img{width: 100px;}
 
 .solo{flex: 2;}
 .flex{flex: 2;}
@@ -68,3 +68,19 @@ body{
 
 }
 
+.game20_menu{padding: 20px;}
+
+.game{display: flex;padding: 20px;align-items: center;}
+.mod{flex: 1;}
+.champion{flex: 1;}
+.multikill{flex: 1;}
+.rune{flex: 1;}
+.score{flex: 2;}
+.item{flex: 3;}
+.usersd{flex: 3;}
+.champion img{width: 45px;}
+.item img{width: 25px;}
+
+.users{flex: 3;display: flex;justify-content: space-between;}
+.lose{background-color: rgba(0, 0, 255, 0.285);border-left: 6px solid blue;}
+.victory{background-color: rgba(255, 0, 0, 0.388);border-left: 6px solid red;}
