@@ -197,11 +197,43 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+        const API_KEY ="RGAPI-62bb218b-80ad-49d8-906e-da4abbe28550"
+        let 닉네임
+        let 테그
+
+
+
+        axios.get('https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/%EC%95%84%EA%B8%B0%ED%86%A0%EB%81%BC/%EB%83%90%EC%98%81%ED%86%A0%EB%81%BC?api_key=RGAPI-62bb218b-80ad-49d8-906e-da4abbe28550')
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+
+        const 검색버튼 = document.querySelector(".search_button")
+         검색버튼.addEventListener("click",function() {
+                axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${자기닉네임}/${자기테그}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+
+                puuid = response.data.puuid
+                console.log(puuid)
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+
+         })
+
+
         //검색버튼에 클릭 이벤트 걸기
         //RGAPI-62bb218b-80ad-49d8-906e-da4abbe28550
         // "puuid": "jA6PoZn8W7y3XGVOXXYPS-JzlumnQ4WiX-21L_jTrwSuRNZbE0hOxZ-N33tO0sbJs-Sxt0r04GJA6A",
         // https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/%EC%95%84%EA%B8%B0%ED%86%A0%EB%81%BC/%EB%83%90%EC%98%81%ED%86%A0%EB%81%BC?api_key=RGAPI-62bb218b-80ad-49d8-906e-da4abbe28550
+        //"id": "FG2W3RYo7ez9wdw5hDQOIpICkm6uEy0TKDb25HpYXYTx8uI",
     </script>
 </body>
 </html>
