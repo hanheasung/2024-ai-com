@@ -25,14 +25,14 @@
                 <img src="https://opgg-static.akamaized.net/images/medals_new/challenger.png" alt="솔랭티어">
                 <div class="player_info">
                     <h1>닉네임</h1>
-                    <h1>level 500</h1>
+                    <h2>level<span>100</span></h2>
+                    
 
-
-            </div >
+                </div>
 
             <div class="solo">
                 <h1>솔랭</h1>
-                <img src="https://opgg-static.akamaized.net/images/medals_new/challenger.png" alt="솔랭티어">
+                <img src= "https://opgg-static.akamaized.net/images/medals_new/challenger.png" alt="솔랭티어">
                 <span class="win">o</span>승 <span class="lose">o</span>패 /<span class="rate">o</span>%
                 
                 </div>
@@ -203,30 +203,83 @@
         let 닉네임 = document.querySelector(".name")
         let 테그 = document.querySelector(".tag")
 
+        let puuid
+        let 레벨
+        let 프사번호
+        let id          
 
 
-        axios.get('https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/%EC%95%84%EA%B8%B0%ED%86%A0%EB%81%BC/%EB%83%90%EC%98%81%ED%86%A0%EB%81%BC?api_key=RGAPI-62bb218b-80ad-49d8-906e-da4abbe28550')
-        .then(function (response) {
-            console.log(response);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
 
-        const 검색버튼 = document.querySelector(".search_button")
-         검색버튼.addEventListener("click",function() {
-                axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${닉네임.value}/${테그.value}?api_key=${API_KEY}`)
-            .then(function (response) {
-                console.log(response);
+
+        const 검색버튼 = document.querySelector(".search_button")           
+         검색버튼.addEventListener("click",async function() {           
+                await axios.get(`https://asia.api.riotgames.com/riot/account/v1/accounts            /by-riot-id/${닉네임.value}/${테그.value}?api_key=${API_KEY}`)
+            .then(function (response) {         
+                console.log(response);          
 
                 puuid = response.data.puuid
                 console.log(puuid)
-            })
-            .catch(function (error) {
-                console.log(error);
+
+                document.querySelector(".player_info h1").textContent = response.data.gameName + "#" + response.data.tagLine
             })
 
+                
+
+              await axios.get(`https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+                
+                레벨 = response.data.summonerLevel
+                프사번호 = response.data.profileIconId
+                id = response.data.id
+
+                document.querySelector(".player_info h2 span").textContent = 레벨 //닉 변
+                document.querySelector(".player img").setAttribute("src", 'https://cdn.lol.ps/assets/img/profile-icons/5314_128.webp')
+
+            })
+            
+            
+            await axios.get(`hhttps://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/${id}?api_key=${API_KEY}`)
+            .then(function (response) {
+                console.log(response);
+                const 솔랭이미지 = document.querySelector(".player_menu .solo img")
+                솔랭이미지.setAttribute("src",)
+
+                if(response.data[0] != undefined) {
+                    
+                document.querySelector(".solo .win").textContent = response.data[0].wins
+                document.querySelector(".solo .lose").textContent = response.data[0].loses
+                document.querySelector(".solo .rate").textContent = (response.data[0].wins / response.data[0].loses)
+        
+                }
+
+                           
+
+                console.log(response);
+                const 자랭이미지 = document.querySelector(".player_menu .flex img")
+                자랭이미지.setAttribute("src",)
+
+
+                if(response.data[1] != undefined ) {
+                    
+                document.querySelector(".solo .win").textContent = response.data[0].wins
+                document.querySelector(".solo .lose").textContent = response.data[0].loses
+                document.querySelector(".solo .rate").textContent = (response.data[0].wins / response.data[0].loses)
+        
+                }
+
+
+            })
+
+ 
+        
+
+
+
          })
+
+
+
 
 
         //검색버튼에 클릭 이벤트 걸기
