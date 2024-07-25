@@ -290,16 +290,24 @@
                 //챔피언
                 for(let i=0; i <=9; i = i+1) {
                     if(response.data.info.participants[i].puuid == puuid) {
-                        
+                        console.log(response.data.info.participants[i].perks.styles[1].style)
+                        console.log(response.data.info.participants[i].perks.styles[1].kills)
+                        console.log((response.data.info.participants[i].perks.styles[1].kills) + (response.data.info.participants[i].perks.styles[1].deaths))
+                        //레벨
+                        //멀티킬
+                        //룬
+                        //kda gold cs
+                        //아이템
                     }
+                                   
                 }
-                //레벨
-                //멀티킬
-                //룬
-                //kda gold cs
-                //아이템
-                //유저 10명
 
+                for(let i = 0; i <=9; i =i+1) {//유저 10명
+                    
+
+                }
+     
+                
             })
         }
 
