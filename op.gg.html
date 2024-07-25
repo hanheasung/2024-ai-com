@@ -100,11 +100,12 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        const API_KEY = "RGAPI-d5ae14d3-78fc-41e7-903a-1de502c90e14";
+        const API_KEY = "RGAPI-201a7037-17a5-48e8-9c84-f23343512fbc";
         let 닉네임 = document.querySelector(".name");
         let 태그 = document.querySelector(".tag");
 
         let puuid, 레벨, 프사번호, id;
+      
 
         const 검색버튼 = document.querySelector(".search_button");
         검색버튼.addEventListener("click", async function() {
@@ -166,6 +167,7 @@
                         gameElement.classList.add("victory");
                     } else {
                         gameElement.classList.add("defeat");
+                        console.log(response)
                     }
 
                     gameElement.innerHTML = `
