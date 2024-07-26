@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>op.gg</title>
+    <style>
+        body{
+            background-image: url(https://jjalbang.today/jjvJ1.jpg);
+            background-size: cover;
+        }
+        
+
+        .player_menu{display: flex;}
+        .solo{text-align: center;}  
+        .solo > img{width: 400px;}
+        .flex{text-align: center;}
+        .flex > img{width: 400px;}
+        .gameplay{display: flex;}
+        .solo{position: absolute;left: 22%;top:7% ;}
+        .flex{position: absolute;left: 33%;top: 7%;}
+        .summ{position:absolute;left: 80% ;}
+        .player{position:absolute;left: 27%;top:67%;}
+        *{z-index: 2;}
+        body{z-index: 1;}
+        .player_info{position: absolute;left: 50px;}
+    
+
+    </style>
+
+
+
+   
+</head>
+
+
+<body>
+    <div class="container">
+        <section class="search_menu">
+            <div class="search_bar">
+                <input type="text" class="name" value="아기토끼" placeholder="이름">
+                <input type="text" class="tag" value="냐영토끼" placeholder="태그">
+                <button class="search_button">검색</button>
+            </div>
+        </section>
+        <div class="player_info">
+            <h1>닉네임</h1>
+            <h2>level <span>100</span></h2>
+        </div>
+    
+        <section class="player_menu">
+   
+            <div class="gameplay">
+                <div class="solo">
+                    <h1>솔로랭크</h1>
+                    <img src="https://opgg-static.akamaized.net/images/medals_new/bronze.png" alt="솔랭티어">
+                    <p><span class="win">ㅇ</span>승 <span class="lose">ㅇ</span>패 / <span class="rate">ㅇ</span>%</p>
+                </div>
+                <div class="flex">
+                    <h1>자유랭크</h1>
+                    <img src="https://opgg-static.akamaized.net/images/medals_new/bronze.png" alt="자랭티어">
+                    <p><span class="win">ㅇ</span>승 <span class="lose">ㅇ</span>패 / <span class="rate">ㅇ</span>%</p>
+            </div>
+
+
+            <div class="player">
+                
+                <img src="https://opgg-static.akamaized.net/meta/images/profile_icons/profileIcon5314.jpg" alt="프사">
+       
+            </div>
+              
+        </section>
+
+        <section class="summ">
+            <div>최근 패배한 챔피언</div>
+            <img src="	https://opgg-static.akamaized.net/meta/images/lol/14.14.1/spell/SummonerBoost.png" alt="점멸">
+            <img src="	https://opgg-static.akamaized.net/meta/images/lol/14.14.1/spell/SummonerHeal.png" alt="점멸">
+        </section>
+    
+      
+    </div>
+
+
+
+   
+</body>
+
+</html>
