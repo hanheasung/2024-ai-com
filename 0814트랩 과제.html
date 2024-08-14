@@ -31,7 +31,7 @@
 
                 가격.forEach((item) => {
                     const 아이디 = item.id;
-                    const 수량 = parseInt(item.value);
+                    const 수량 = parseInt(item.value) ||0;
                     const 물건가격 = 각가격[아이디];
 
                     총가격 += 수량 * 물건가격;
