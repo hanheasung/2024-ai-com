@@ -22,11 +22,41 @@
         모든박스[0].style.color = "red"
         모든박스[1].style.color = "blue"
         모든박스[2].style.color = "pink"
-        모든박스[3].style.fontSize = "30px"
+        모든박스[3].style.fontSize = "30px" // 하나하나 적용
 
         모든박스.forEach(function(태그) {
             태그.style.fontSize = "100pt"
+
+        })//돈시에 다 적용 ㄱㄴ
+
+
+        let array = [1,2,3,4,5]
+        console.log(array)
+        array.map(function(원소){
+            console.log(원소*2)
+            return 원소*2
         })
+        console.log(array)
+        
+        let 새로운array
+        새로운array = array.map(function(원소){
+            console.log(원소*2)
+            return 원소*2
+
+        })
+
+        array.filter((원소) => {
+            return 원소 > 3
+
+        })
+
+
+        let 필터링한array = array.filter( (원소) => {
+            return 원소 > 3
+
+        })
+        console.log(필터링한array)
+
 
 
 
