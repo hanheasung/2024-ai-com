@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가격계산 과제</title>
+</head>
+<body>
+    <div class="box">치킨 만원 <input type="text" id="1" value="0"></div>
+    <div class="box">피자 이만원 <input type="text" id="2" value="0"></div>
+    <div class="box">무 삼만원 <input type="text" id="3" value="0"></div>
+    <div class="box">자 사만원 <input type="text" id="4" value="0"></div>
+
+    <h1>
+        총가격: <span id="t">0</span>만원 
+    </h1>
+    
+    <script>
+        const 가격 = document.querySelectorAll("input");
+
+        const 각가격 = {
+            "1": 1,
+            "2": 2,
+            "3": 3,
+            "4": 4
+        };
+
+        가격.forEach((input) => {
+            input.addEventListener('input', () => {
+                let 총가격 = 0;
+
+                가격.forEach((item) => {
+                    const 아이디 = item.id;
+                    const 수량 = parseInt(item.value);
+                    const 물건가격 = 각가격[아이디];
+
+                    총가격 += 수량 * 물건가격;
+                });
+
+                document.getElementById('t').textContent = 총가격;
+            });
+        });
+    </script>
+</body>
+</html>
