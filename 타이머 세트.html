@@ -9,13 +9,29 @@
 
 
     <script>
+        let setInterval에넣을함수 = function() {console.log("일정시간마다 실행하는 setInterval 함수")}
         //일정시간마다
-        setIterval(실행코드,시간)//interval: 간격 + 컴퓨터 = 1000 = 1초
+        //setIterval(실행코드,시간)//interval: 간격 + 컴퓨터 = 1000 = 1초
 
-        setInterval(function() {
-            console.log("일정시간마다 실행하는 인터벌 함수")
-            
-        },1000)
+        let setInter함수 = setInterval(setInterval에넣을함수,1000)
+
+
+
+        clearInterval(setInter함수) //setInterval로 돌아가는 함수 중지
+
+        // setTimeout(코드,3000)
+        let setTimeout함수 = setTimeout(function() {
+            alert("3초가 지나서 실행됨")// 문구 띄우기
+        },3000)
+        
+
+        clearTimeout(setTimeout함수)
+
+        let 예제함수 =function() {console.log("예시")}
+
+        예제함수 //변수
+        예제함수()//함수실행하라는 뜻
+
 
         
     </script>
