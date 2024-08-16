@@ -6,19 +6,32 @@
     <title>타이머</title>
 </head>
 <body>
-    <h1>시간 <input type="text"><button class="st">시작</button><button class="sto">정지</button></h1>
-
-    <h2 class="time">0</h2>
-
-
+    <h1>시간 <input type="text" id="in"><button class="st">시작</button><button class="sto">정지</button></h1>
+    <h2>0</h2>
 
     <script>
+        const 실행 = document.querySelector(".st");
+        const 정지 = document.querySelector(".sto");
+        const 시간표시 = document.querySelector("h2");
+        let 타이머;
+        let 남은시간;
 
-       const 실행 = document.querySelector(".str")
-       const 정지 = document.querySelector(".sto")
-       실행.addEventListener("click",(key) => {
-        setInterval()
-       })
+        실행.addEventListener("click", () => {
+            남은시간 = parseInt(document.getElementById("in").value) || 0;
+            시간표시.textContent = 남은시간;
+            타이머 = setInterval(() => {
+                if (남은시간 > 0) {
+                    남은시간--;
+                    시간표시.textContent = 남은시간;
+                } else {
+                    clearInterval(타이머);
+                }
+            }, 1000);
+        });
+
+        정지.addEventListener("click", () => {
+            clearInterval(타이머);
+        });
     </script>
     
 </body>
