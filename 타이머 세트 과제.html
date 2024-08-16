@@ -17,7 +17,7 @@
         let 남은시간;
 
         실행.addEventListener("click", () => {
-            남은시간 = parseInt(document.getElementById("in").value) || 0;
+            남은시간 = parseInt(document.getElementById("in").value) || 0;//벨류를 쓰지않으면 인풋 안에 내용이 아니라 인풋을 통쩨로 가져오는거임
             시간표시.textContent = 남은시간;
             타이머 = setInterval(() => {
                 if (남은시간 > 0) {
