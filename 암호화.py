@@ -9,6 +9,7 @@ class SimpleEnDecrypt:
             key = Fernet.generate_key()  # 새 키를 생성합니다.
         self.key = key  # 키를 클래스 변수로 저장합니다.
         self.f = Fernet(self.key)  # Fernet 객체를 생성합니다.
+        print(key)
     
     # 데이터 암호화 메서드
     def encrypt(self, data, is_out_string=True):
