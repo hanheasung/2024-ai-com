@@ -42,7 +42,30 @@
         console.log(날짜.getSeconds())
         console.log(날짜.toLocaleTimeString())
         console.log(날짜.toISOString())//숫자로 날짜 표기
-        console.log(날짜.now())
+        console.log(날짜.getTime())//전부 초로 계산
+
+        console.log("형준이생일",날짜.getTime())
+
+        let 병윤생일 = new Date(2006,1,4,10,30,0)
+        병윤생일 = 병윤생일.getTime()
+        let 형준생일 = 날짜.getTime()
+
+        console.log((형준생일 - 병윤생일)/1000,"초")
+
+        let 분 = ((형준생일 - 병윤생일)/1000)/60
+        console.log(분,'분')
+        
+        let 일 = 분/24
+        console.log(일,'일')
+
+        
+
+    
+
+
+
+
+        
 
 
 
