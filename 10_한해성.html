@@ -4,8 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>10_한해성</title>
+    <style>
+        img{display: block;}
+    </style>
+
 </head>
 <body>
+
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
+    <img src="/이이.jpg" alt="">
     
+
+    <script>
+        let 마우스스 = window.innerHeight / 2;
+
+        function 스크롤() {
+            마우스스 += 5; 
+            window.scrollTo(마우스스);
+            
+            if (마우스스 < window.innerHeight) {
+                requestAnimationFrame(스크롤);
+            }
+        }
+
+        스크롤();
+
+    </script>
 </body>
 </html>
