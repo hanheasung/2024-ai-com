@@ -1,43 +1,102 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>10_한해성</title>
     <style>
-        img{display: block;}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            background-color: black;
+            
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color:rgb(245, 16, 245);
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        .projects {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .project {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
-
 </head>
 <body>
 
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    <img src="/이이.jpg" alt="">
-    
 
-    <script>
-        let 마우스스 = window.innerHeight / 2;
 
-        function 스크롤() {
-            마우스스 += 5; 
-            window.scrollTo(마우스스);
-            
-            if (마우스스 < window.innerHeight) {
-                requestAnimationFrame(스크롤);
-            }
-        }
+    <nav>
+        <a href="#about">프로필</a>
+        <a href="#contact">프로젝트</a>
+        <a href="#projects">깃허브</a>
+    </nav>
 
-        스크롤();
+    <section id="about">
+        <h2>프로필</h2>
+        <p></p>
+    </section>
 
-    </script>
+    <section id="projects">
+        <h2>스킬</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>언어</h3>
+            </div>
+            <div class="project">
+                <h3>웹 퍼블리싱</h3>
+            </div>
+            <div class="project">
+                <h3>학력</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        
+    </section>
+
+    <footer>
+
+        <p>&copy;본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
+        <p>Email: hanhsdsi09@gmail.com / 전화번호: 010-5405-3303</p>
+    </footer>
+
 </body>
 </html>
