@@ -72,27 +72,27 @@
 
 
     <div class="start" style="z-index: 3;">
-        <a href="http://127.0.0.1:5705/10_%ED%95%9C%ED%95%B4%EC%84%B1.html#https://github.com/hanheasung/2024-ai-com">
-            <img  style="width: 100px;" src="https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo" alt="" >
+        <a href="http://127.0.0.1:5705/10_%ED%95%9C%ED%95%B4%EC%84%B1.html#https://github.com/hanheasung/2024-ai-com" alt="" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="나의 프로픽">
+            <img  style="width: 100px;border-radius: 100%;" src="https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo"    >
             <br>
             프로필
         </a>
         <br>
         
         <a href="#about">
-            <img style="width: 100px;" src="https://static.vecteezy.com/ti/vecteur-libre/p2/439792-icone-de-dossier-de-vecteur-gratuit-vectoriel.jpg" alt="">
+            <img style="width: 100px;border-radius: 100%;" src="https://static.vecteezy.com/ti/vecteur-libre/p2/439792-icone-de-dossier-de-vecteur-gratuit-vectoriel.jpg" alt=""data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="가장 대표적인 프로젝트들이다">
             <br>
             프로젝트
         </a>
         <br>
         
         <a href="https://github.com/hanheasung/2024-ai-com">
-            <img style="width: 100px;" src="https://pngimg.com/uploads/github/github_PNG58.png" alt="">
+            <img style="width: 100px;" src="https://pngimg.com/uploads/github/github_PNG58.png" alt=""data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="모든 프로젝트들을 볼수있는 곳이다">
             <br>
             깃허브
         </a>
     </div>
-     
+
 
 
     <div class="mom">
@@ -100,7 +100,7 @@
     <section id="about">
         <h2>프로필</h2>
         <h4>이름:한해성</h4>
-        <h4></h4>
+        <h4>백엔드 공부를 하고있는 초보 개발자 한해성입니다</h4>
     </section>
 
     <section id="projects" style="width: 600px;">
@@ -150,16 +150,8 @@
 
 
     <script>
-        const myModal = document.getElementById('myModal')
-        const myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-        })
-
-
-        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))    
+       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 
 </body>
