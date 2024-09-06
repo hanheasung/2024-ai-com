@@ -95,7 +95,7 @@
         <br>
         
         <a href="#about">
-            <img style="width: 100px;border-radius: 100%;" src="https://static.vecteezy.com/ti/vecteur-libre/p2/439792-icone-de-dossier-de-vecteur-gratuit-vectoriel.jpg" alt=""data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="가장 대표적인 프로젝트들이다">
+            <img style="width: 100px;border-radius: 100%;" src="https://static.vecteezy.com/ti/vecteur-libre/p2/439792-icone-de-dossier-de-vecteur-gratuit-vectoriel.jpg" alt=""data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="가장 대표적인 프로젝트들이다" onclick="scrollToBottom()">
             <br>
             프로젝트
         </a>
@@ -200,5 +200,18 @@
        const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     </script>
 
+<script>
+    function scrollToBottom() {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
 </body>
 </html>
+
+
+
+
