@@ -5,7 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>10_한해성</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <style>
+        *{
+            position: relative;
+            z-index: 2;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,85 +24,143 @@
             padding: 20px;
             text-align: center;
         }
-        nav {
-            margin: 20px 0;
-            text-align: center;
-            background-color: black;
+
+        .start{
+            position: fixed;
             
+          
+    
+            border-radius: 20px;
+           
+            left: 95%;
+            text-align: center;
+            margin: 0;
+
         }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color:rgb(245, 16, 245);
-            font-weight: bold;
+        .start a{
+            color: rgb(222, 16, 222);
+            text-align: center;
         }
         section {
             padding: 20px;
         }
-        .projects {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
+      
         .project {
-            width: 30%;
             margin: 10px;
             padding: 20px;
-            background-color: #f4f4f4;
-            border: 1px solid #ddd;
+            background-color: #393636b8;
             border-radius: 8px;
         }
         footer {
-            background-color: #333;
+            background-color: #3f3c3c;
             color: #fff;
             padding: 10px;
             text-align: center;
             position: fixed;
             bottom: 0;
             width: 100%;
+
         }
+
+
+
     </style>
 </head>
 <body>
+    <img style=" position:fixed;z-index: 1; width: 2550px;height: 1220px;" src="https://i.pinimg.com/originals/b0/c5/25/b0c5252258304bcbab2197b51321601e.png" alt="">
 
 
 
-    <nav>
-        <a href="#about">프로필</a>
-        <a href="#contact">프로젝트</a>
-        <a href="#projects">깃허브</a>
-    </nav>
+    <div class="start" style="z-index: 3;">
+        <a href="http://127.0.0.1:5705/10_%ED%95%9C%ED%95%B4%EC%84%B1.html#https://github.com/hanheasung/2024-ai-com">
+            <img  style="width: 100px;" src="https://play-lh.googleusercontent.com/38AGKCqmbjZ9OuWx4YjssAz3Y0DTWbiM5HB0ove1pNBq_o9mtWfGszjZNxZdwt_vgHo" alt="" >
+            <br>
+            프로필
+        </a>
+        <br>
+        
+        <a href="#about">
+            <img style="width: 100px;" src="https://static.vecteezy.com/ti/vecteur-libre/p2/439792-icone-de-dossier-de-vecteur-gratuit-vectoriel.jpg" alt="">
+            <br>
+            프로젝트
+        </a>
+        <br>
+        
+        <a href="https://github.com/hanheasung/2024-ai-com">
+            <img style="width: 100px;" src="https://pngimg.com/uploads/github/github_PNG58.png" alt="">
+            <br>
+            깃허브
+        </a>
+    </div>
+     
 
+
+    <div class="mom">
+    
     <section id="about">
         <h2>프로필</h2>
-        <p></p>
+        <h4>이름:한해성</h4>
+        <h4></h4>
     </section>
 
-    <section id="projects">
+    <section id="projects" style="width: 600px;">
         <h2>스킬</h2>
         <div class="projects">
+           
             <div class="project">
-                <h3>언어</h3>
+                <h3 style="color: white;">웹 퍼블리싱</h3>
+                <img style="width: 100px;" src="https://gss-technology.com/wp-content/uploads/2021/07/round7.png" alt="">
+                <img style="width: 100px;" src="https://emaillistvalidation.com/blog/content/images/2023/09/HTML5_logo_and_wordmark.svg.png" alt="">
+                <img style="width: 180px;margin-left: -30px;" src="https://1000marcas.net/wp-content/uploads/2021/02/CSS-Logo.png" alt="">
+                <img style="width: 150px;margin-left: -60px;" src="https://logos-world.net/wp-content/uploads/2023/02/JavaScript-Emblem.png" alt="">
+            </div>
+
+            <div class="project">
+                <h3 style="color: white;">실행환경</h3>
+                <img style="width: 100px;" src="https://polyakovdmitriy.ru/wp-content/uploads/2019/05/nodejs.png.pagespeed.ce_.9zN9M5IW0F.png" alt="">
+
+                
+               
             </div>
             <div class="project">
-                <h3>웹 퍼블리싱</h3>
-            </div>
-            <div class="project">
-                <h3>학력</h3>
+                <h3 style="color: white;">학력</h3>
+                <div>
+                
+                <img style="width: 100px;margin-left: -10px;" src="https://cdn.discordapp.com/attachments/1209279969696415871/1219578917505990677/3329ebcc1487f225.png?ex=66db74a0&is=66da2320&hm=7ac414fb4c0f9d578c028c563e20f567f89f8bff3a9d593c9fe93b468a9e10c1&" alt="">
+                <p style="color: white;">ai컴퓨터과</p>
+                <p style="color: white;">종로산업 정보 학교</p>
+                </div>
+                </div>
+
+
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        
-    </section>
+
+
+</div>
+
 
     <footer>
 
         <p>&copy;본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</p>
         <p>Email: hanhsdsi09@gmail.com / 전화번호: 010-5405-3303</p>
     </footer>
+
+
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+        })
+
+
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))    
+    </script>
 
 </body>
 </html>
