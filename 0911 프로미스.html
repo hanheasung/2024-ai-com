@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>promise</title>
+</head>
+<body>
+    <h1>프로미스에 대해 </h1>
+
+    <script>
+        let 프로미스 = new Promise((성공,실패) => {
+
+
+            if(ture) {
+                성공(" 작업성공")
+            }
+            else{
+                실패(" 작업실패")
+            }
+        })
+        프로미스.then("만날래?") //성공한경우
+        .catch("ㄴㄴ")//실패한경우
+        
+
+    </script>
+    
+</body>
+</html>
